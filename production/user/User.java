@@ -1,7 +1,7 @@
 package production.user;
 
-import production.achievement.AchievementList;
 import production.achievement.Achievement;
+import production.achievement.AchievementList;
 
 public interface User {
     PersonName getName();

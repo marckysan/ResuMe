@@ -52,7 +52,7 @@ public class AchievementListImpl implements AchievementList {
     @Override
     public String toString() {
         if (isEmpty()) {
-            return "Achievement.Achievement List is empty!";
+            return "Achievement list is empty!";
         }
 
         String achievements = "The following are your achievements:" + "\n";
