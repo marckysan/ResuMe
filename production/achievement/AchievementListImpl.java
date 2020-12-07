@@ -1,5 +1,6 @@
 package achievement;
 
+import exception.AchievementNotFoundException;
 import exception.DuplicateAchievementException;
 
 import java.util.List;
@@ -24,11 +25,20 @@ public class AchievementListImpl implements AchievementList {
 
     @Override
     public void add(Achievement achievement) throws DuplicateAchievementException {
-        if (internalList.contains(achievement)) {
+        if (this.contains(achievement)) {
             throw new DuplicateAchievementException();
         }
-        assert (!internalList.contains(achievement));
+        assert (!this.contains(achievement));
         internalList.add(achievement);
+    }
+
+    @Override
+    public void remove(Achievement achievement) throws AchievementNotFoundException {
+        if (!this.contains(achievement)) {
+            throw new AchievementNotFoundException();
+        }
+        assert (this.contains(achievement));
+        internalList.remove(achievement);
     }
 
     @Override

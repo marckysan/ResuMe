@@ -1,6 +1,6 @@
 package achievement;
 
 public interface Achievement {
-    String getName();
-    String getDescription();
+    AchievementName getName();
+    AchievementDescription getDescription();
 }

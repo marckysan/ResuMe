@@ -4,21 +4,21 @@ import java.util.Objects;
 
 public class PersonalProject implements Achievement {
 
-    public String name;
-    public String description;
+    public AchievementName name;
+    public AchievementDescription description;
 
-    public PersonalProject(String name, String description) {
+    public PersonalProject(AchievementName name, AchievementDescription description) {
         this.name = name;
         this.description = description;
     }
 
     @Override
-    public String getName() {
+    public AchievementName getName() {
         return name;
     }
 
     @Override
-    public String getDescription() {
+    public AchievementDescription getDescription() {
         return description;
     }
 
