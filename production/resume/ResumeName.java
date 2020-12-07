@@ -3,7 +3,7 @@ package production.resume;
 import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
-import static production.util.AppUtil.checkArgument;
+import static production.util.ArgumentChecker.checkArgument;
 
 public class ResumeName {
 

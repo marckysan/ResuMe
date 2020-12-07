@@ -1,6 +1,6 @@
 package production.util;
 
-public class AppUtil {
+public class ArgumentChecker {
 
     /**
      * Checks that {@code condition} is true. Used for validating arguments to methods.
