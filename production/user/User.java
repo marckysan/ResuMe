@@ -1,8 +1,10 @@
-import achievement.AchievementList;
-import achievement.Achievement;
+package production.user;
+
+import production.achievement.AchievementList;
+import production.achievement.Achievement;
 
 public interface User {
-    String getName();
+    PersonName getName();
     AchievementList getAchievements();
     void addAchievement(Achievement achievement);
     void removeAchievement(Achievement achievement);

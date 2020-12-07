@@ -1,4 +1,4 @@
-package exception;
+package production.exception;
 
 public class BackendException extends RuntimeException {
     private final String message;

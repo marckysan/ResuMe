@@ -1,9 +1,9 @@
-package achievement;
+package production.achievement;
 
 import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
-import static util.AppUtil.checkArgument;
+import static production.util.AppUtil.checkArgument;
 
 public class AchievementDescription {
 

@@ -1,17 +1,19 @@
-import achievement.*;
+package production.user;
+
+import production.achievement.*;
 
 public class UserImpl implements User {
 
-    private final String name;
+    private final PersonName name;
     private final AchievementList achievements;
 
-    public UserImpl(String name, AchievementList achievements) {
+    public UserImpl(PersonName name, AchievementList achievements) {
         this.name = name;
         this.achievements = achievements;
     }
 
     @Override
-    public String getName() {
+    public PersonName getName() {
         return name;
     }
 
@@ -32,11 +34,11 @@ public class UserImpl implements User {
 
     @Override
     public String toString() {
-        return getName();
+        return getName().toString();
     }
 
     public static void main(String[] args) {
-        User joshua = new UserImpl("Joshua Chew", new AchievementListImpl());
+        User joshua = new UserImpl(new PersonName("Joshua Chew"), new AchievementListImpl());
         joshua.addAchievement(new PersonalProject(new AchievementName("ResuMe"), new AchievementDescription("Wrote the backend.")));
         joshua.addAchievement(new PersonalProject(new AchievementName("The Tower"), new AchievementDescription("Implemented on Pygame.")));
         joshua.addAchievement(new PersonalProject(new AchievementName("Tweevestigator"), new AchievementDescription("Using Tweepy framework.")));

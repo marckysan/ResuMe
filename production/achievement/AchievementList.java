@@ -1,4 +1,4 @@
-package achievement;
+package production.achievement;
 
 public interface AchievementList {
     boolean isEmpty();
