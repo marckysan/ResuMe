@@ -16,12 +16,11 @@ Logic <|.. LogicImpl
 class ResumeGenerator
 class AchievementSelector
 LogicImpl *-- "1" ResumeGenerator
-LogicImpl *-- "1" AchievementSelector
+LogicImpl --> AchievementSelector
+LogicImpl --> User.AchievementList
 
 class AchievementSelection
-AchievementSelector --> AchievementSelection
-AchievementSelector --> User.AchievementList
-AchievementSelection o-- "*" User.Achievement
+AchievementSelector *-- "1" AchievementSelection
 
 ResumeGenerator --> AchievementSelection
 ResumeGenerator --> User.ResumeImpl

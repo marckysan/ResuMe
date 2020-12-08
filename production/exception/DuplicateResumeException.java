@@ -1,4 +1,4 @@
-package production.model.exception;
+package production.exception;
 
 public class DuplicateResumeException extends BackendException {
 

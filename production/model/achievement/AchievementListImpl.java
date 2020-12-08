@@ -1,7 +1,7 @@
 package production.model.achievement;
 
-import production.model.exception.AchievementNotFoundException;
-import production.model.exception.DuplicateAchievementException;
+import production.exception.AchievementNotFoundException;
+import production.exception.DuplicateAchievementException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -21,6 +21,11 @@ public class AchievementListImpl implements AchievementList {
     @Override
     public boolean contains(Achievement achievement) {
         return internalList.contains(achievement);
+    }
+
+    @Override
+    public int length() {
+        return internalList.size();
     }
 
     @Override
