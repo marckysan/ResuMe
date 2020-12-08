@@ -20,6 +20,8 @@ LogicImpl *-- "1" AchievementSelector
 
 class AchievementSelection
 AchievementSelector --> AchievementSelection
+AchievementSelector --> User.AchievementList
+AchievementSelection o-- "*" User.Achievement
 
 ResumeGenerator --> AchievementSelection
 ResumeGenerator --> User.ResumeImpl
