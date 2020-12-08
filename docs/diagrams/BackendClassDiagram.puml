@@ -3,37 +3,31 @@
 skinparam monochrome true
 hide empty members
 
-class Main
-Main --> Logic.Logic
-Main --> User.User
+class Backend
+Backend --> Logic.ResumeGenerator
+Backend *-- "1" Model.Person
 
 namespace Logic {
 
-interface Logic
-class LogicImpl
-Logic <|.. LogicImpl
-
-class ResumeGenerator
+interface ResumeGenerator
+class ResumeGeneratorImpl
 class AchievementSelector
-LogicImpl *-- "1" ResumeGenerator
-LogicImpl *-- "1" AchievementSelector
 
-class AchievementSelection
-AchievementSelector --> AchievementSelection
-
-ResumeGenerator --> AchievementSelection
-ResumeGenerator --> User.ResumeImpl
+ResumeGenerator <|.. ResumeGeneratorImpl
+ResumeGeneratorImpl *-- "1" AchievementSelector
+ResumeGeneratorImpl --> Model.ResumeImpl
+ResumeGeneratorImpl --> Model.AchievementList
 }
 
-namespace User {
+namespace Model {
 
-interface User
-class UserImpl {
+interface Person
+class PersonImpl {
     PersonName name
 }
-User <|.. UserImpl
-UserImpl *-- "1" AchievementList
-UserImpl *-- "1" ResumeList
+Person <|.. PersonImpl
+PersonImpl *-- "1" AchievementList
+PersonImpl *-- "1" ResumeList
 
 interface Achievement
 class PersonalProject {
