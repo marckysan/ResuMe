@@ -1,4 +1,4 @@
-package production.achievement;
+package production.model.achievement;
 
 public interface Achievement {
     AchievementName getName();

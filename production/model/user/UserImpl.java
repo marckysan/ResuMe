@@ -1,15 +1,20 @@
-package production.user;
+package production.model.user;
 
-import production.achievement.*;
+import production.model.achievement.*;
+import production.model.resume.Resume;
+import production.model.resume.ResumeList;
+import production.model.resume.ResumeListImpl;
 
 public class UserImpl implements User {
 
     private final PersonName name;
     private final AchievementList achievements;
+    private final ResumeList resumes;
 
-    public UserImpl(PersonName name, AchievementList achievements) {
+    public UserImpl(PersonName name, AchievementList achievements, ResumeList resumes) {
         this.name = name;
         this.achievements = achievements;
+        this.resumes = resumes;
     }
 
     @Override
@@ -23,6 +28,11 @@ public class UserImpl implements User {
     }
 
     @Override
+    public ResumeList getResumes() {
+        return resumes;
+    }
+
+    @Override
     public void addAchievement(Achievement achievement) {
         achievements.add(achievement);
     }
@@ -33,12 +43,22 @@ public class UserImpl implements User {
     }
 
     @Override
+    public void addResume(Resume resume) {
+        resumes.add(resume);
+    }
+
+    @Override
+    public void removeResume(Resume resume) {
+        resumes.remove(resume);
+    }
+
+    @Override
     public String toString() {
         return getName().toString();
     }
 
     public static void main(String[] args) {
-        User joshua = new UserImpl(new PersonName("Joshua Chew"), new AchievementListImpl());
+        User joshua = new UserImpl(new PersonName("Joshua Chew"), new AchievementListImpl(), new ResumeListImpl());
         joshua.addAchievement(new PersonalProject(new AchievementName("ResuMe"), new AchievementDescription("Wrote the backend.")));
         joshua.addAchievement(new PersonalProject(new AchievementName("The Tower"), new AchievementDescription("Implemented on Pygame.")));
         joshua.addAchievement(new PersonalProject(new AchievementName("Tweevestigator"), new AchievementDescription("Using Tweepy framework.")));

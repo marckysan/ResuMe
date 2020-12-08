@@ -1,7 +1,7 @@
-package production.achievement;
+package production.model.achievement;
 
-import production.exception.AchievementNotFoundException;
-import production.exception.DuplicateAchievementException;
+import production.model.exception.AchievementNotFoundException;
+import production.model.exception.DuplicateAchievementException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class AchievementListImpl implements AchievementList {
     @Override
     public String toString() {
         if (isEmpty()) {
-            return "Achievement.Achievement List is empty!";
+            return "Achievement list is empty!";
         }
 
         String achievements = "The following are your achievements:" + "\n";

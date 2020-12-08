@@ -1,7 +1,7 @@
-package production.user;
+package production.model.user;
 
 import static java.util.Objects.requireNonNull;
-import static production.util.AppUtil.checkArgument;
+import static production.util.ArgumentChecker.checkArgument;
 
 public class PersonName {
 
