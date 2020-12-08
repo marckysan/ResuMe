@@ -3,9 +3,9 @@
 skinparam monochrome true
 hide empty members
 
-class Main
-Main --> Logic.ResumeGenerator
-Main o-- "1" Model.User
+class Backend
+Backend --> Logic.ResumeGenerator
+Backend *-- "1" Model.Person
 
 namespace Logic {
 
@@ -21,13 +21,13 @@ ResumeGeneratorImpl --> Model.AchievementList
 
 namespace Model {
 
-interface User
-class UserImpl {
+interface Person
+class PersonImpl {
     PersonName name
 }
-User <|.. UserImpl
-UserImpl *-- "1" AchievementList
-UserImpl *-- "1" ResumeList
+Person <|.. PersonImpl
+PersonImpl *-- "1" AchievementList
+PersonImpl *-- "1" ResumeList
 
 interface Achievement
 class PersonalProject {
