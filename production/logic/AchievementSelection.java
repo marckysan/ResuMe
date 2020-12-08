@@ -14,6 +14,10 @@ public class AchievementSelection {
 
     public AchievementSelection() {}
 
+    public List<Integer> getIndices() {
+        return indices;
+    }
+
     public boolean isEmpty() {
         return indices.isEmpty();
     }
