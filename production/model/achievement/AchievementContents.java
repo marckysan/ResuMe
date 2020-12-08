@@ -5,17 +5,17 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 import static production.util.ArgumentChecker.checkArgument;
 
-public class AchievementDescription {
+public class AchievementContents {
 
     public static final String ACHIEVEMENT_DESCRIPTION_CONSTRAINTS_MESSAGE =
             "Achievement description should not be blank or whitespace.";
 
-    public final String description;
+    public final String contents;
 
-    public AchievementDescription(String description) {
-        requireNonNull(description);
-        checkArgument(isValidDescription(description), ACHIEVEMENT_DESCRIPTION_CONSTRAINTS_MESSAGE);
-        this.description = description;
+    public AchievementContents(String contents) {
+        requireNonNull(contents);
+        checkArgument(isValidDescription(contents), ACHIEVEMENT_DESCRIPTION_CONSTRAINTS_MESSAGE);
+        this.contents = contents;
     }
 
     public static boolean isValidDescription(String test) {
@@ -26,13 +26,13 @@ public class AchievementDescription {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AchievementDescription that = (AchievementDescription) o;
-        return Objects.equals(description, that.description);
+        AchievementContents that = (AchievementContents) o;
+        return Objects.equals(contents, that.contents);
     }
 
     @Override
     public String toString() {
-        return description;
+        return contents;
     }
 
 }

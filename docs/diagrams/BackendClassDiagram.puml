@@ -24,6 +24,7 @@ AchievementSelector *-- "1" AchievementSelection
 
 ResumeGenerator --> AchievementSelection
 ResumeGenerator --> User.ResumeImpl
+ResumeGenerator --> User.AchievementList
 }
 
 namespace User {

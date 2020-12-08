@@ -6,4 +6,7 @@ public interface AchievementList {
     int length();
     void add(Achievement achievement);
     void remove(Achievement achievement);
+    Achievement get(int index);
+    AchievementName getAchievementName(int index);
+    AchievementContents getAchievementContents(int index);
 }

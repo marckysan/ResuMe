@@ -2,10 +2,13 @@ package production.model.achievement;
 
 import production.exception.AchievementNotFoundException;
 import production.exception.DuplicateAchievementException;
+import production.util.Message;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
+
+import static production.util.ArgumentChecker.checkArgument;
 
 public class AchievementListImpl implements AchievementList {
 
@@ -44,6 +47,28 @@ public class AchievementListImpl implements AchievementList {
         }
         assert (this.contains(achievement));
         internalList.remove(achievement);
+    }
+
+    @Override
+    public Achievement get(int index) {
+        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
+        return internalList.get(index);
+    }
+
+    @Override
+    public AchievementName getAchievementName(int index) {
+        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
+        return get(index).getName();
+    }
+
+    @Override
+    public AchievementContents getAchievementContents(int index) {
+        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
+        return get(index).getContents();
+    }
+
+    private boolean isValidIndex(int index) {
+        return index >= 0 && index < length();
     }
 
     @Override

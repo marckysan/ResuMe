@@ -5,9 +5,9 @@ import java.util.Objects;
 public class PersonalProject implements Achievement {
 
     public AchievementName name;
-    public AchievementDescription description;
+    public AchievementContents description;
 
-    public PersonalProject(AchievementName name, AchievementDescription description) {
+    public PersonalProject(AchievementName name, AchievementContents description) {
         this.name = name;
         this.description = description;
     }
@@ -18,7 +18,7 @@ public class PersonalProject implements Achievement {
     }
 
     @Override
-    public AchievementDescription getDescription() {
+    public AchievementContents getContents() {
         return description;
     }
 
@@ -33,7 +33,7 @@ public class PersonalProject implements Achievement {
 
     @Override
     public String toString() {
-        return "Personal Project: " + getName() + " | " + getDescription();
+        return "Personal Project: " + getName() + " | " + getContents();
     }
 
 }

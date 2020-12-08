@@ -1,13 +1,13 @@
 package production.logic;
 
+import production.util.Message;
+
 import static production.util.ArgumentChecker.checkArgument;
 
 public class AchievementSelector {
 
     private final int MIN_ACHIEVEMENT_INDEX = 0;
     private final int MAX_ACHIEVEMENT_INDEX;
-
-    private final String INVALID_ACHIEVEMENT_INDEX_MESSAGE = "Invalid index received!";
 
     private final AchievementSelection selection;
 
@@ -21,12 +21,12 @@ public class AchievementSelector {
     }
 
     public void select(int index) {
-        checkArgument(isValidIndex(index), INVALID_ACHIEVEMENT_INDEX_MESSAGE);
+        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
         selection.add(index);
     }
 
     public void deselect(int index) {
-        checkArgument(isValidIndex(index), INVALID_ACHIEVEMENT_INDEX_MESSAGE);
+        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
         selection.remove(index);
     }
 
