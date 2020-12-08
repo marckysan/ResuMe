@@ -2,7 +2,7 @@ package production.util;
 
 public enum Message {
 
-    INVALID_ACHIEVEMENT_INDEX_MESSAGE("Invalid index received!");
+    INVALID_ACHIEVEMENT_INDEX_MESSAGE("Invalid achievement index received!");
 
     private final String content;
 

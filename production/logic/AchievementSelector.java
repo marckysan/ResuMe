@@ -1,37 +1,43 @@
 package production.logic;
 
-import production.util.Message;
+import production.exception.InvalidAchievementIndexException;
 
-import static production.util.ArgumentChecker.checkArgument;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AchievementSelector {
 
-    private final int MIN_ACHIEVEMENT_INDEX = 0;
-    private final int MAX_ACHIEVEMENT_INDEX;
+    private final int numAchievements;
+    private final Set<Integer> indices = new HashSet<>();
 
-    private final AchievementSelection selection;
-
-    public AchievementSelector(int achievementCount) {
-        this.MAX_ACHIEVEMENT_INDEX = achievementCount - 1;
-        this.selection = new AchievementSelection();
+    public AchievementSelector(int numAchievements) {
+        this.numAchievements = numAchievements;
     }
 
-    public AchievementSelection getSelection() {
-        return selection;
+    public Set<Integer> getSelection() {
+        return indices;
     }
 
-    public void select(int index) {
-        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
-        selection.add(index);
+    public boolean isEmpty() {
+        return indices.isEmpty();
     }
 
-    public void deselect(int index) {
-        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
-        selection.remove(index);
+    public void select(int index) throws InvalidAchievementIndexException {
+        if (!isValidIndex(index)) {
+            throw new InvalidAchievementIndexException();
+        }
+        indices.add(index);
+    }
+
+    public void deselect(int index) throws InvalidAchievementIndexException {
+        if (!isValidIndex(index)) {
+            throw new InvalidAchievementIndexException();
+        }
+        indices.remove(index);
     }
 
     public boolean isValidIndex(int index) {
-        return index >= MAX_ACHIEVEMENT_INDEX && index <= MAX_ACHIEVEMENT_INDEX;
+        return 0 <= index && index < numAchievements;
     }
 
 }

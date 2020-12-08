@@ -3,7 +3,7 @@ package production.model.achievement;
 public interface AchievementList {
     boolean isEmpty();
     boolean contains(Achievement achievement);
-    int length();
+    int getNumAchievements();
     void add(Achievement achievement);
     void remove(Achievement achievement);
     Achievement get(int index);

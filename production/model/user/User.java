@@ -9,6 +9,7 @@ public interface User {
     PersonName getName();
     AchievementList getAchievements();
     ResumeList getResumes();
+    int getNumAchievements();
     void addAchievement(Achievement achievement);
     void removeAchievement(Achievement achievement);
     void addResume(Resume resume);

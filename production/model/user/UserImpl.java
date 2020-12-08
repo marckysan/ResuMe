@@ -33,6 +33,11 @@ public class UserImpl implements User {
     }
 
     @Override
+    public int getNumAchievements() {
+        return achievements.getNumAchievements();
+    }
+
+    @Override
     public void addAchievement(Achievement achievement) {
         achievements.add(achievement);
     }

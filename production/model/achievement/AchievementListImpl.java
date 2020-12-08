@@ -2,13 +2,11 @@ package production.model.achievement;
 
 import production.exception.AchievementNotFoundException;
 import production.exception.DuplicateAchievementException;
-import production.util.Message;
+import production.exception.InvalidAchievementIndexException;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
-
-import static production.util.ArgumentChecker.checkArgument;
 
 public class AchievementListImpl implements AchievementList {
 
@@ -27,7 +25,7 @@ public class AchievementListImpl implements AchievementList {
     }
 
     @Override
-    public int length() {
+    public int getNumAchievements() {
         return internalList.size();
     }
 
@@ -50,25 +48,30 @@ public class AchievementListImpl implements AchievementList {
     }
 
     @Override
-    public Achievement get(int index) {
-        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
-        return internalList.get(index);
+    public Achievement get(int index) throws InvalidAchievementIndexException {
+        try {
+            return internalList.get(index);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidAchievementIndexException();
+        }
     }
 
     @Override
-    public AchievementName getAchievementName(int index) {
-        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
-        return get(index).getName();
+    public AchievementName getAchievementName(int index) throws InvalidAchievementIndexException {
+        try {
+            return internalList.get(index).getName();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidAchievementIndexException();
+        }
     }
 
     @Override
-    public AchievementContents getAchievementContents(int index) {
-        checkArgument(isValidIndex(index), Message.INVALID_ACHIEVEMENT_INDEX_MESSAGE.getMessage());
-        return get(index).getContents();
-    }
-
-    private boolean isValidIndex(int index) {
-        return index >= 0 && index < length();
+    public AchievementContents getAchievementContents(int index) throws InvalidAchievementIndexException {
+        try {
+            return internalList.get(index).getContents();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidAchievementIndexException();
+        }
     }
 
     @Override
