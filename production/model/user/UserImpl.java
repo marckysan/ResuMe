@@ -1,9 +1,9 @@
-package production.user;
+package production.model.user;
 
-import production.achievement.*;
-import production.resume.Resume;
-import production.resume.ResumeList;
-import production.resume.ResumeListImpl;
+import production.model.achievement.*;
+import production.model.resume.Resume;
+import production.model.resume.ResumeList;
+import production.model.resume.ResumeListImpl;
 
 public class UserImpl implements User {
 

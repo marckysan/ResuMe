@@ -1,7 +1,7 @@
-package production.achievement;
+package production.model.achievement;
 
-import production.exception.AchievementNotFoundException;
-import production.exception.DuplicateAchievementException;
+import production.model.exception.AchievementNotFoundException;
+import production.model.exception.DuplicateAchievementException;
 
 import java.util.List;
 import java.util.ArrayList;

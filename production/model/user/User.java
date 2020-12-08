@@ -1,9 +1,9 @@
-package production.user;
+package production.model.user;
 
-import production.achievement.Achievement;
-import production.achievement.AchievementList;
-import production.resume.Resume;
-import production.resume.ResumeList;
+import production.model.achievement.Achievement;
+import production.model.achievement.AchievementList;
+import production.model.resume.Resume;
+import production.model.resume.ResumeList;
 
 public interface User {
     PersonName getName();

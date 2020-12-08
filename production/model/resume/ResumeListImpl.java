@@ -1,7 +1,7 @@
-package production.resume;
+package production.model.resume;
 
-import production.exception.DuplicateResumeException;
-import production.exception.ResumeNotFoundException;
+import production.model.exception.DuplicateResumeException;
+import production.model.exception.ResumeNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;

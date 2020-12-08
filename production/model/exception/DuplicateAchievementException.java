@@ -1,4 +1,4 @@
-package production.exception;
+package production.model.exception;
 
 public class DuplicateAchievementException extends BackendException {
 

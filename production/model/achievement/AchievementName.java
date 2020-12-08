@@ -1,20 +1,20 @@
-package production.resume;
+package production.model.achievement;
 
 import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 import static production.util.ArgumentChecker.checkArgument;
 
-public class ResumeName {
+public class AchievementName {
 
-    public static final String RESUME_NAME_CONSTRAINTS_MESSAGE =
-            "Resume names should not be blank or whitespace.";
+    public static final String ACHIEVEMENT_NAME_CONSTRAINTS_MESSAGE =
+            "Achievement names should not be blank or whitespace.";
 
     public final String name;
 
-    public ResumeName(String name) {
+    public AchievementName(String name) {
         requireNonNull(name);
-        checkArgument(isValidName(name), RESUME_NAME_CONSTRAINTS_MESSAGE);
+        checkArgument(isValidName(name), ACHIEVEMENT_NAME_CONSTRAINTS_MESSAGE);
         this.name = name;
     }
 
@@ -26,7 +26,7 @@ public class ResumeName {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ResumeName that = (ResumeName) o;
+        AchievementName that = (AchievementName) o;
         return Objects.equals(name, that.name);
     }
 

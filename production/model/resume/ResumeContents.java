@@ -1,4 +1,4 @@
-package production.resume;
+package production.model.resume;
 
 import java.util.Objects;
 
