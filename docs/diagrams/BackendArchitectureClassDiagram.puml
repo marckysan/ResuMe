@@ -1,0 +1,27 @@
+@startuml
+
+skinparam monochrome true
+hide empty members
+
+class Application
+interface Frontend
+Application *-- "1" Backend.Backend
+Application *-- "1" Frontend
+Frontend --> Backend.Backend
+
+namespace Backend {
+
+interface Backend
+class BackendImpl
+Backend <|.. BackendImpl
+
+interface Storage
+interface Person
+interface ResumeGenerator
+BackendImpl *-- "1" Storage
+BackendImpl *-- "1" Person
+BackendImpl *-- "1" ResumeGenerator
+
+}
+
+@enduml
