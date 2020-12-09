@@ -10,10 +10,13 @@ import backend.model.person.PersonName;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 import backend.model.resume.ResumeListImpl;
+import backend.storage.Storage;
+import backend.storage.StorageImpl;
 
 public class Backend {
 
     private final Person person;
+    private final Storage storage;
     private ResumeGenerator generator = null;
 
     private static final Backend BACKEND = new Backend(new PersonImpl(
@@ -21,6 +24,7 @@ public class Backend {
 
     private Backend(Person person) {
         this.person = person;
+        this.storage = new StorageImpl();
     }
 
     public static Backend getBackend() {
@@ -45,18 +49,22 @@ public class Backend {
 
     public void addAchievement(Achievement achievement) {
         person.addAchievement(achievement);
+        storage.save(person);
     }
 
     public void removeAchievement(Achievement achievement) {
         person.removeAchievement(achievement);
+        storage.save(person);
     }
 
     public void addResume(Resume resume) {
         person.addResume(resume);
+        storage.save(person);
     }
 
     public void removeResume(Resume resume) {
         person.removeResume(resume);
+        storage.save(person);
     }
 
     public void selectAchievement(int index) {
@@ -99,7 +107,7 @@ public class Backend {
         backend.deselectAchievement(4);
         backend.selectAchievement(4);
         Resume resume = backend.generateResume();
-        System.out.println(resume.getContents().toString());
+        backend.addResume(resume);
     }
 
 }

@@ -35,7 +35,7 @@ public class StorageImpl implements Storage {
         JsonSerializablePerson serializablePerson = new JsonSerializablePerson(person);
         try {
             FileWriter file = new FileWriter(PERSON_DATA_FILEPATH.toString());
-            file.write(serializablePerson.toJsonString());
+            file.write(serializablePerson.serialize().toString());
             file.flush();
         } catch (IOException ioException) {
             ioException.printStackTrace();

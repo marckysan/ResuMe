@@ -55,15 +55,15 @@ public class JsonSerializablePerson {
     }
 
 
-    public String toJsonString() {
+    public JSONObject serialize() {
         PersonName personName = person.getName();
         AchievementList achievements = person.getAchievements();
         ResumeList resumes = person.getResumes();
         JSONObject personDetails = new JSONObject();
         personDetails.put("personName", personName.getFullName());
-        personDetails.put("achievements", serializeAchievementList(achievements).toJSONString());
-        personDetails.put("resumes", serializeResumeList(resumes).toJSONString());
-        return personDetails.toJSONString();
+        personDetails.put("achievements", serializeAchievementList(achievements));
+        personDetails.put("resumes", serializeResumeList(resumes));
+        return personDetails;
     }
 
 }
