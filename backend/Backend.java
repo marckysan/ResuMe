@@ -96,6 +96,8 @@ public class Backend {
 
     public static void main(String[] args) {
         Backend backend = getBackend();
+        System.out.println(backend.getPerson().getName().getFullName());
+
     }
 
 }
