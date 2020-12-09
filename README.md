@@ -8,4 +8,4 @@ We are now at the first iteration of our development, where we aim to create the
 - Ability to generate plain text resumes to be saved as PDF
 
 The class diagram for the backend logic is as follows:
-![Backend Class Diagram](docs/images/BackendClassDiagram.png)
+![Backend Class Diagram](docs/images/NewBackendClassDiagram.png)
