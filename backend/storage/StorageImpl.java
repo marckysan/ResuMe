@@ -1,6 +1,7 @@
 package backend.storage;
 
 import backend.exception.CorruptedPersonDataException;
+import backend.exception.UnableSavePersonException;
 import backend.model.person.Person;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,7 +32,7 @@ public class StorageImpl implements Storage {
     }
 
     @Override
-    public void save(Person person) {
+    public void save(Person person) throws UnableSavePersonException {
         if (!isExistingPath(DIRECTORY_FILEPATH)) {
             File data = new File(DIRECTORY_FILEPATH.toUri());
             data.mkdir();
@@ -42,7 +43,7 @@ public class StorageImpl implements Storage {
             file.write(personSerializer.serialize().toString());
             file.flush();
         } catch (IOException ioException) {
-            ioException.printStackTrace();
+            throw new UnableSavePersonException();
         }
     }
 

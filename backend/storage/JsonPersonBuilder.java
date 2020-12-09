@@ -1,5 +1,6 @@
 package backend.storage;
 
+import backend.exception.CorruptedPersonDataException;
 import backend.model.achievement.*;
 import backend.model.person.PersonImpl;
 import backend.model.person.PersonName;
@@ -15,17 +16,21 @@ public class JsonPersonBuilder {
         this.personData = personData;
     }
 
-    public PersonImpl build() {
-        // Extract all Person attributes as JSON data
-        String fullName = (String) personData.get("personName");
-        JSONArray achievementListData = (JSONArray) personData.get("achievements");
-        JSONArray resumeListData = (JSONArray) personData.get("resumes");
+    public PersonImpl build() throws CorruptedPersonDataException {
+        try {
+            // Extract all Person attributes as JSON data
+            String fullName = (String) personData.get("personName");
+            JSONArray achievementListData = (JSONArray) personData.get("achievements");
+            JSONArray resumeListData = (JSONArray) personData.get("resumes");
 
-        // Generate all Person attributes
-        PersonName personName = new PersonName(fullName);
-        AchievementList achievements = buildAchievementList(achievementListData);
-        ResumeList resumes = buildResumeList(resumeListData);
-        return new PersonImpl(personName, achievements, resumes);
+            // Generate all Person attributes
+            PersonName personName = new PersonName(fullName);
+            AchievementList achievements = buildAchievementList(achievementListData);
+            ResumeList resumes = buildResumeList(resumeListData);
+            return new PersonImpl(personName, achievements, resumes);
+        } catch (NullPointerException e) {
+            throw new CorruptedPersonDataException();
+        }
     }
 
     private AchievementList buildAchievementList(JSONArray achievementListData) {
