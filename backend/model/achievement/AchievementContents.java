@@ -18,6 +18,10 @@ public class AchievementContents {
         this.contents = contents;
     }
 
+    public String getFullContents() {
+        return contents;
+    }
+
     public static boolean isValidDescription(String test) {
         return !(test == null || test.trim().isEmpty());
     }

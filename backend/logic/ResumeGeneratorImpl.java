@@ -1,6 +1,6 @@
 package backend.logic;
 
-import backend.exception.InvalidAchievementIndexException;
+import backend.exception.InvalidIndexException;
 import backend.model.achievement.AchievementContents;
 import backend.model.achievement.AchievementList;
 import backend.model.achievement.AchievementName;
@@ -24,17 +24,17 @@ public class ResumeGeneratorImpl implements ResumeGenerator {
     }
 
     @Override
-    public void selectAchievement(int index) throws InvalidAchievementIndexException {
+    public void selectAchievement(int index) throws InvalidIndexException {
         if (!isValidIndex(index)) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
         selector.select(index);
     }
 
     @Override
-    public void deselectAchievement(int index) throws InvalidAchievementIndexException {
+    public void deselectAchievement(int index) throws InvalidIndexException {
         if (!isValidIndex(index)) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
         selector.deselect(index);
     }

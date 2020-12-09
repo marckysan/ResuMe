@@ -10,12 +10,16 @@ public class ResumeName {
     public static final String RESUME_NAME_CONSTRAINTS_MESSAGE =
             "Resume names should not be blank or whitespace.";
 
-    public final String name;
+    private final String name;
 
     public ResumeName(String name) {
         requireNonNull(name);
         checkArgument(isValidName(name), RESUME_NAME_CONSTRAINTS_MESSAGE);
         this.name = name;
+    }
+
+    public String getFullName() {
+        return name;
     }
 
     public static boolean isValidName(String test) {

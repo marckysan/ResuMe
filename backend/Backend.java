@@ -27,6 +27,10 @@ public class Backend {
         return BACKEND;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
     public AchievementList getAchievements() {
         return person.getAchievements();
     }

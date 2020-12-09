@@ -4,10 +4,14 @@ import java.util.Objects;
 
 public class ResumeContents {
 
-    public final String contents;
+    private final String contents;
 
     public ResumeContents(String contents) {
         this.contents = contents;
+    }
+
+    public String getFullContents() {
+        return contents;
     }
 
     @Override

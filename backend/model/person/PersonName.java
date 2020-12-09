@@ -16,12 +16,16 @@ public class PersonName {
      */
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
-    public final String fullName;
+    private final String fullName;
 
     public PersonName(String name) {
         requireNonNull(name);
         checkArgument(isValidName(name), INVALID_PERSON_NAME_MESSAGE);
         fullName = name;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 
     public static boolean isValidName(String test) {

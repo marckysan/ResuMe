@@ -6,6 +6,19 @@ hide empty members
 class Backend
 Backend --> Logic.ResumeGenerator
 Backend *-- "1" Model.Person
+Backend *-- "1" Storage.Storage
+
+namespace Storage {
+
+interface Storage
+class StorageImpl
+Storage <|.. StorageImpl
+
+class JsonSerializablePerson
+StorageImpl --> JsonSerializablePerson
+JsonSerializablePerson --> Model.Person
+
+}
 
 namespace Logic {
 

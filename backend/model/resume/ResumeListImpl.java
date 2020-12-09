@@ -1,6 +1,7 @@
 package backend.model.resume;
 
 import backend.exception.DuplicateResumeException;
+import backend.exception.InvalidIndexException;
 import backend.exception.ResumeNotFoundException;
 
 import java.util.ArrayList;
@@ -21,6 +22,38 @@ public class ResumeListImpl implements ResumeList {
     @Override
     public boolean contains(Resume resume) {
         return internalList.contains(resume);
+    }
+
+    @Override
+    public int getNumResumes() {
+        return internalList.size();
+    }
+
+    @Override
+    public Resume get(int index) throws InvalidIndexException {
+        try {
+            return internalList.get(index);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidIndexException();
+        }
+    }
+
+    @Override
+    public ResumeName getResumeName(int index) {
+        try {
+            return internalList.get(index).getName();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidIndexException();
+        }
+    }
+
+    @Override
+    public ResumeContents getResumeContents(int index) {
+        try {
+            return internalList.get(index).getContents();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidIndexException();
+        }
     }
 
     @Override
