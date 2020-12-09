@@ -1,14 +1,12 @@
 package backend.storage;
 
-import backend.model.achievement.AchievementListImpl;
+import backend.exception.CorruptedPersonDataException;
 import backend.model.person.Person;
-import backend.model.person.PersonImpl;
-import backend.model.person.PersonName;
-import backend.model.resume.ResumeListImpl;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -20,10 +18,16 @@ public class StorageImpl implements Storage {
     public StorageImpl() {}
 
     @Override
-    public Person load() {
-        // TODO
-        PersonImpl placeholder = new PersonImpl(new PersonName("Joshua Chew"), new AchievementListImpl(), new ResumeListImpl());
-        return placeholder;
+    public Person load() throws CorruptedPersonDataException {
+        JSONParser jsonParser = new JSONParser();
+        try (FileReader reader = new FileReader(PERSON_DATA_FILEPATH.toString())) {
+            Object personObj = jsonParser.parse(reader);
+            JSONObject personData = (JSONObject) personObj;
+            JsonPersonBuilder personBuilder = new JsonPersonBuilder(personData);
+            return personBuilder.build();
+        } catch (IOException | ParseException e) {
+            throw new CorruptedPersonDataException();
+        }
     }
 
     @Override
@@ -32,10 +36,10 @@ public class StorageImpl implements Storage {
             File data = new File(DIRECTORY_FILEPATH.toUri());
             data.mkdir();
         }
-        JsonSerializablePerson serializablePerson = new JsonSerializablePerson(person);
+        JsonPersonSerializer personSerializer = new JsonPersonSerializer(person);
         try {
             FileWriter file = new FileWriter(PERSON_DATA_FILEPATH.toString());
-            file.write(serializablePerson.serialize().toString());
+            file.write(personSerializer.serialize().toString());
             file.flush();
         } catch (IOException ioException) {
             ioException.printStackTrace();

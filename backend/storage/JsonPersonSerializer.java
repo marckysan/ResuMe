@@ -9,19 +9,33 @@ import backend.model.resume.ResumeList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class JsonSerializablePerson {
+public class JsonPersonSerializer {
 
     /*
         TODO: To really make this open for modification, every person attribute should
-         implement the interface JsonSerializable, which has serialize() method.
+         implement the interface JsonSerializable, which have serialize() and build() methods.
          As for this milestone, the following would suffice. But once more Achievement
          types are introduced, extension would be difficult.
     */
 
     private final Person person;
 
-    public JsonSerializablePerson(Person person) {
+    public JsonPersonSerializer(Person person) {
         this.person = person;
+    }
+
+    public JSONObject serialize() {
+        // Extract all Person attributes
+        PersonName personName = person.getName();
+        AchievementList achievements = person.getAchievements();
+        ResumeList resumes = person.getResumes();
+        JSONObject personDetails = new JSONObject();
+
+        // Generate JSON data for each attribute
+        personDetails.put("personName", personName.getFullName());
+        personDetails.put("achievements", serializeAchievementList(achievements));
+        personDetails.put("resumes", serializeResumeList(resumes));
+        return personDetails;
     }
 
     private JSONArray serializeAchievementList(AchievementList achievements) {
@@ -52,18 +66,6 @@ public class JsonSerializablePerson {
         resumeData.put("resumeName", resume.getName().getFullName());
         resumeData.put("resumeContents", resume.getContents().getFullContents());
         return resumeData;
-    }
-
-
-    public JSONObject serialize() {
-        PersonName personName = person.getName();
-        AchievementList achievements = person.getAchievements();
-        ResumeList resumes = person.getResumes();
-        JSONObject personDetails = new JSONObject();
-        personDetails.put("personName", personName.getFullName());
-        personDetails.put("achievements", serializeAchievementList(achievements));
-        personDetails.put("resumes", serializeResumeList(resumes));
-        return personDetails;
     }
 
 }

@@ -14,9 +14,13 @@ interface Storage
 class StorageImpl
 Storage <|.. StorageImpl
 
-class JsonSerializablePerson
-StorageImpl --> JsonSerializablePerson
-JsonSerializablePerson --> Model.Person
+class JsonPersonSerializer
+StorageImpl --> JsonPersonSerializer
+JsonPersonSerializer --> Model.Person
+
+class JsonPersonBuilder
+StorageImpl --> JsonPersonBuilder
+JsonPersonBuilder --> Model.PersonImpl
 
 }
 
