@@ -1,6 +1,6 @@
 package backend.logic;
 
-import backend.exception.InvalidAchievementIndexException;
+import backend.exception.InvalidIndexException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,16 +22,16 @@ public class AchievementSelector {
         return indices.isEmpty();
     }
 
-    public void select(int index) throws InvalidAchievementIndexException {
+    public void select(int index) throws InvalidIndexException {
         if (!isValidIndex(index)) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
         indices.add(index);
     }
 
-    public void deselect(int index) throws InvalidAchievementIndexException {
+    public void deselect(int index) throws InvalidIndexException {
         if (!isValidIndex(index)) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
         indices.remove(index);
     }

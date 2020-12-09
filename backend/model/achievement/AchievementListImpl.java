@@ -2,7 +2,7 @@ package backend.model.achievement;
 
 import backend.exception.AchievementNotFoundException;
 import backend.exception.DuplicateAchievementException;
-import backend.exception.InvalidAchievementIndexException;
+import backend.exception.InvalidIndexException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,7 +12,11 @@ public class AchievementListImpl implements AchievementList {
 
     private final List<Achievement> internalList = new ArrayList<>();
 
-    public AchievementListImpl() {}
+    private AchievementListImpl() {}
+
+    public static AchievementListImpl getEmptyList() {
+        return new AchievementListImpl();
+    }
 
     @Override
     public boolean isEmpty() {
@@ -48,29 +52,29 @@ public class AchievementListImpl implements AchievementList {
     }
 
     @Override
-    public Achievement get(int index) throws InvalidAchievementIndexException {
+    public Achievement get(int index) throws InvalidIndexException {
         try {
             return internalList.get(index);
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
     }
 
     @Override
-    public AchievementName getAchievementName(int index) throws InvalidAchievementIndexException {
+    public AchievementName getAchievementName(int index) throws InvalidIndexException {
         try {
             return internalList.get(index).getName();
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
     }
 
     @Override
-    public AchievementContents getAchievementContents(int index) throws InvalidAchievementIndexException {
+    public AchievementContents getAchievementContents(int index) throws InvalidIndexException {
         try {
             return internalList.get(index).getContents();
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new InvalidAchievementIndexException();
+            throw new InvalidIndexException();
         }
     }
 

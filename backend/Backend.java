@@ -1,30 +1,42 @@
 package backend;
 
+import backend.exception.CorruptedPersonDataException;
 import backend.exception.UninitializedGeneratorException;
 import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
-import backend.model.achievement.*;
+import backend.model.achievement.Achievement;
+import backend.model.achievement.AchievementList;
 import backend.model.person.Person;
 import backend.model.person.PersonImpl;
-import backend.model.person.PersonName;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
-import backend.model.resume.ResumeListImpl;
+import backend.storage.Storage;
+import backend.storage.StorageImpl;
 
 public class Backend {
 
-    private final Person person;
+    private Person person;
     private ResumeGenerator generator = null;
+    private final Storage storage;
 
-    private static final Backend BACKEND = new Backend(new PersonImpl(
-            new PersonName("Joshua Chew"), new AchievementListImpl(), new ResumeListImpl()));
+    private static final Backend BACKEND = new Backend();
 
-    private Backend(Person person) {
-        this.person = person;
+    private Backend() {
+        this.storage = new StorageImpl();
+        try {
+            this.person = storage.load();
+        } catch (CorruptedPersonDataException e) {
+            System.out.println(e.getMessage());
+            this.person = PersonImpl.DEFAULT_PERSON;
+        }
     }
 
     public static Backend getBackend() {
         return BACKEND;
+    }
+
+    public Person getPerson() {
+        return person;
     }
 
     public AchievementList getAchievements() {
@@ -41,18 +53,22 @@ public class Backend {
 
     public void addAchievement(Achievement achievement) {
         person.addAchievement(achievement);
+        storage.save(person);
     }
 
     public void removeAchievement(Achievement achievement) {
         person.removeAchievement(achievement);
+        storage.save(person);
     }
 
     public void addResume(Resume resume) {
         person.addResume(resume);
+        storage.save(person);
     }
 
     public void removeResume(Resume resume) {
         person.removeResume(resume);
+        storage.save(person);
     }
 
     public void selectAchievement(int index) {
@@ -73,29 +89,15 @@ public class Backend {
         if (generator == null) {
             throw new UninitializedGeneratorException();
         }
-        return generator.generateResume(person.getAchievements());
+        Resume resume = generator.generateResume(person.getAchievements());
+        generator = null;
+        return resume;
     }
 
     public static void main(String[] args) {
         Backend backend = getBackend();
+        System.out.println(backend.getPerson().getName().getFullName());
 
-        backend.addAchievement(new PersonalProject(new AchievementName("ResuMe"), new AchievementContents("Wrote the backend.")));
-        backend.addAchievement(new PersonalProject(new AchievementName("The Tower"), new AchievementContents("Implemented on Pygame.")));
-        backend.addAchievement(new PersonalProject(new AchievementName("Tweevestigator"), new AchievementContents("Using Tweepy framework.")));
-        backend.addAchievement(new PersonalProject(new AchievementName("Duke"), new AchievementContents("Individual project for CS2103.")));
-        backend.addAchievement(new PersonalProject(new AchievementName("TAskmaster"), new AchievementContents("Team project for CS2103.")));
-        backend.addAchievement(new PersonalProject(new AchievementName("Sudoku Solver"), new AchievementContents("Used Tkinter for GUI.")));
-        backend.removeAchievement(new PersonalProject(new AchievementName("Sudoku Solver"), new AchievementContents("Used Tkinter for GUI.")));
-
-        backend.selectAchievement(0);
-        backend.selectAchievement(1);
-        backend.selectAchievement(2);
-        backend.selectAchievement(3);
-        backend.selectAchievement(4);
-        backend.deselectAchievement(4);
-        backend.selectAchievement(4);
-        Resume resume = backend.generateResume();
-        System.out.println(resume.getContents().toString());
     }
 
 }

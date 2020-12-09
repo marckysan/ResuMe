@@ -1,4 +1,5 @@
 .idea
 .DS_Store
 out/
-ResuMe.iml
+data/
+target/

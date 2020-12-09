@@ -18,6 +18,10 @@ public class AchievementName {
         this.name = name;
     }
 
+    public String getFullName() {
+        return name;
+    }
+
     public static boolean isValidName(String test) {
         return !(test == null || test.trim().isEmpty());
     }
