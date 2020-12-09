@@ -34,7 +34,7 @@ public class JsonPersonBuilder {
     }
 
     private AchievementList buildAchievementList(JSONArray achievementListData) {
-        AchievementListImpl achievements = new AchievementListImpl();
+        AchievementListImpl achievements = AchievementListImpl.getEmptyList();
         achievementListData.forEach(achievementData ->
                 achievements.add(buildAchievement((JSONObject) achievementData)));
         return achievements;
@@ -48,7 +48,7 @@ public class JsonPersonBuilder {
     }
 
     private ResumeList buildResumeList(JSONArray resumeListData) {
-        ResumeList resumes = new ResumeListImpl();
+        ResumeList resumes = ResumeListImpl.getEmptyList();
         resumeListData.forEach(resumeData ->
                 resumes.add(buildResume((JSONObject) resumeData)));
         return resumes;

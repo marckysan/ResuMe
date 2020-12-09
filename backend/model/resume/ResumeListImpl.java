@@ -12,7 +12,11 @@ public class ResumeListImpl implements ResumeList {
 
     private final List<Resume> internalList = new ArrayList<>();
 
-    public ResumeListImpl() {}
+    private ResumeListImpl() {}
+
+    public static ResumeListImpl getEmptyList() {
+        return new ResumeListImpl();
+    }
 
     @Override
     public boolean isEmpty() {

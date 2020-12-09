@@ -12,7 +12,11 @@ public class AchievementListImpl implements AchievementList {
 
     private final List<Achievement> internalList = new ArrayList<>();
 
-    public AchievementListImpl() {}
+    private AchievementListImpl() {}
+
+    public static AchievementListImpl getEmptyList() {
+        return new AchievementListImpl();
+    }
 
     @Override
     public boolean isEmpty() {

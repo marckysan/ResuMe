@@ -6,13 +6,10 @@ import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
-import backend.model.achievement.AchievementListImpl;
 import backend.model.person.Person;
 import backend.model.person.PersonImpl;
-import backend.model.person.PersonName;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
-import backend.model.resume.ResumeListImpl;
 import backend.storage.Storage;
 import backend.storage.StorageImpl;
 
@@ -30,7 +27,7 @@ public class Backend {
             this.person = storage.load();
         } catch (CorruptedPersonDataException e) {
             System.out.println(e.getMessage());
-            this.person = new PersonImpl(new PersonName("Default Person"), new AchievementListImpl(), new ResumeListImpl());
+            this.person = PersonImpl.DEFAULT_PERSON;
         }
     }
 

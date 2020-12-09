@@ -1,6 +1,8 @@
 package backend.model.person;
 
-import backend.model.achievement.*;
+import backend.model.achievement.Achievement;
+import backend.model.achievement.AchievementList;
+import backend.model.achievement.AchievementListImpl;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 import backend.model.resume.ResumeListImpl;
@@ -10,6 +12,11 @@ public class PersonImpl implements Person {
     private final PersonName name;
     private final AchievementList achievements;
     private final ResumeList resumes;
+
+    public static PersonImpl DEFAULT_PERSON = new PersonImpl(
+            PersonName.getDefaultName(),
+            AchievementListImpl.getEmptyList(),
+            ResumeListImpl.getEmptyList());
 
     public PersonImpl(PersonName name, AchievementList achievements, ResumeList resumes) {
         this.name = name;
