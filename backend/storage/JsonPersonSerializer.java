@@ -13,7 +13,7 @@ public class JsonPersonSerializer {
 
     /*
         TODO: To really make this open for modification, every person attribute should
-         implement the interface JsonSerializable, which have serialize() and build() methods.
+         implement the interface JsonStorable, which have serialize() and build() methods.
          As for this milestone, the following would suffice. But once more Achievement
          types are introduced, extension would be difficult.
     */

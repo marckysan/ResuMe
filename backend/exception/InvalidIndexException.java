@@ -1,11 +1,11 @@
 package backend.exception;
 
-import backend.util.Message;
-
 public class InvalidIndexException extends BackendException{
 
+    private static final String INVALID_INDEX_MESSAGE = "Invalid index received!";
+
     public InvalidIndexException() {
-        super(Message.INVALID_INDEX_MESSAGE.getMessage());
+        super(INVALID_INDEX_MESSAGE);
     }
 
 }
