@@ -1,7 +1,7 @@
 package backend;
 
 import backend.exception.CorruptedPersonDataException;
-import backend.exception.UninitializedGeneratorException;
+import backend.exception.AchievementsNotSelectedYetException;
 import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
 import backend.logic.ResumeSaver;
@@ -72,12 +72,6 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public void addResume(Resume resume) {
-        person.addResume(resume);
-        storage.save(person);
-    }
-
-    @Override
     public void removeResume(int index) {
         person.removeResume(index);
         storage.save(person);
@@ -100,13 +94,14 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public Resume generateResume() {
+    public void generateAndAddResume() {
         if (generator == null) {
-            throw new UninitializedGeneratorException();
+            throw new AchievementsNotSelectedYetException();
         }
         Resume resume = generator.generateResume(person.getAchievements());
+        person.addResume(resume);
         generator = null;
-        return resume;
+        storage.save(person);
     }
 
     @Override
