@@ -23,6 +23,16 @@ public class ResumeImpl implements Resume {
     }
 
     @Override
+    public String getFullName() {
+        return name.getFullName();
+    }
+
+    @Override
+    public String getFullContents() {
+        return contents.getFullContents();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

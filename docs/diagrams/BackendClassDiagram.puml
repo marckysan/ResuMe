@@ -4,6 +4,7 @@ skinparam monochrome true
 hide empty members
 
 class Backend
+Backend --> Logic.ResumeSaver
 Backend --> Logic.ResumeGenerator
 Backend *-- "1" Model.Person
 Backend *-- "1" Storage.Storage
@@ -25,6 +26,11 @@ JsonPersonBuilder --> Model.PersonImpl
 }
 
 namespace Logic {
+
+interface ResumeSaver
+class ResumeSaverImpl
+ResumeSaver <|.. ResumeSaverImpl
+ResumeSaverImpl --> Model.Resume
 
 interface ResumeGenerator
 class ResumeGeneratorImpl
