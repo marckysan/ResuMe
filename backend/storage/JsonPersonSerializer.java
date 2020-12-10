@@ -2,8 +2,8 @@ package backend.storage;
 
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
-import backend.model.person.Person;
-import backend.model.person.PersonName;
+import backend.model.account.Account;
+import backend.model.account.PersonName;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 import org.json.simple.JSONArray;
@@ -11,15 +11,15 @@ import org.json.simple.JSONObject;
 
 public class JsonPersonSerializer {
 
-    private final Person person;
+    private final Account person;
 
-    public JsonPersonSerializer(Person person) {
+    public JsonPersonSerializer(Account person) {
         this.person = person;
     }
 
     public JSONObject serialize() {
         // Extract all Person attributes
-        PersonName personName = person.getName();
+        PersonName personName = person.getPersonName();
         AchievementList achievements = person.getAchievementList();
         ResumeList resumes = person.getResumeList();
         JSONObject personDetails = new JSONObject();

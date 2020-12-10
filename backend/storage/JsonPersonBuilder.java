@@ -2,8 +2,8 @@ package backend.storage;
 
 import backend.exception.CorruptedPersonDataException;
 import backend.model.achievement.*;
-import backend.model.person.PersonImpl;
-import backend.model.person.PersonName;
+import backend.model.account.AccountImpl;
+import backend.model.account.PersonName;
 import backend.model.resume.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +16,7 @@ public class JsonPersonBuilder {
         this.personData = personData;
     }
 
-    public PersonImpl build() throws CorruptedPersonDataException {
+    public AccountImpl build() throws CorruptedPersonDataException {
         try {
             // Extract all Person attributes as JSON data
             String fullName = (String) personData.get("personName");
@@ -27,7 +27,7 @@ public class JsonPersonBuilder {
             PersonName personName = new PersonName(fullName);
             AchievementList achievements = buildAchievementList(achievementListData);
             ResumeList resumes = buildResumeList(resumeListData);
-            return new PersonImpl(personName, achievements, resumes);
+            return new AccountImpl(personName, achievements, resumes);
         } catch (NullPointerException e) {
             throw new CorruptedPersonDataException();
         }

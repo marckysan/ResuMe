@@ -1,7 +1,7 @@
 package backend;
 
 import backend.model.achievement.AchievementList;
-import backend.model.person.Person;
+import backend.model.account.Account;
 import backend.model.resume.ResumeList;
 
 public interface Backend {
@@ -10,7 +10,7 @@ public interface Backend {
     void logout();
     void register();
 
-    Person getPerson();
+    Account getAccount();
     AchievementList getAchievements();
     ResumeList getResumes();
 

@@ -2,7 +2,7 @@ package backend.storage;
 
 import backend.exception.CorruptedPersonDataException;
 import backend.exception.UnableSavePersonException;
-import backend.model.person.Person;
+import backend.model.account.Account;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,7 +19,7 @@ public class StorageImpl implements Storage {
     public StorageImpl() {}
 
     @Override
-    public Person load() throws CorruptedPersonDataException {
+    public Account load() throws CorruptedPersonDataException {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(PERSON_DATA_FILEPATH.toString())) {
             Object personObj = jsonParser.parse(reader);
@@ -32,7 +32,7 @@ public class StorageImpl implements Storage {
     }
 
     @Override
-    public void save(Person person) throws UnableSavePersonException {
+    public void save(Account person) throws UnableSavePersonException {
         if (!isExistingPath(DIRECTORY_FILEPATH)) {
             File data = new File(DIRECTORY_FILEPATH.toUri());
             data.mkdir();

@@ -6,7 +6,7 @@ hide empty members
 class Backend
 Backend --> Logic.ResumeSaver
 Backend --> Logic.ResumeGenerator
-Backend *-- "1" Model.Person
+Backend *-- "1" Model.Account
 Backend *-- "1" Storage.Storage
 
 namespace Storage {
@@ -17,11 +17,11 @@ Storage <|.. StorageImpl
 
 class JsonPersonSerializer
 StorageImpl --> JsonPersonSerializer
-JsonPersonSerializer --> Model.Person
+JsonPersonSerializer --> Model.Account
 
 class JsonPersonBuilder
 StorageImpl --> JsonPersonBuilder
-JsonPersonBuilder --> Model.PersonImpl
+JsonPersonBuilder --> Model.AccountImpl
 
 }
 
@@ -44,13 +44,13 @@ ResumeGeneratorImpl --> Model.AchievementList
 
 namespace Model {
 
-interface Person
-class PersonImpl {
+interface Account
+class AccountImpl {
     PersonName name
 }
-Person <|.. PersonImpl
-PersonImpl *-- "1" AchievementList
-PersonImpl *-- "1" ResumeList
+Account <|.. AccountImpl
+AccountImpl *-- "1" AchievementList
+AccountImpl *-- "1" ResumeList
 
 interface Achievement
 class PersonalProject {

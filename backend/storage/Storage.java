@@ -2,12 +2,12 @@ package backend.storage;
 
 import backend.exception.CorruptedPersonDataException;
 import backend.exception.UnableSavePersonException;
-import backend.model.person.Person;
+import backend.model.account.Account;
 
 import java.nio.file.Path;
 
 public interface Storage {
-    Person load() throws CorruptedPersonDataException;
-    void save(Person person) throws UnableSavePersonException;
+    Account load() throws CorruptedPersonDataException;
+    void save(Account person) throws UnableSavePersonException;
     boolean isExistingPath(Path filepath);
 }

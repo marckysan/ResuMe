@@ -1,4 +1,4 @@
-package backend.model.person;
+package backend.model.account;
 
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
@@ -7,26 +7,26 @@ import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 import backend.model.resume.ResumeListImpl;
 
-public class PersonImpl implements Person {
+public class AccountImpl implements Account {
 
-    private final PersonName name;
+    private final PersonName personName;
     private final AchievementList achievements;
     private final ResumeList resumes;
 
-    public static PersonImpl DEFAULT_PERSON = new PersonImpl(
+    public static AccountImpl DEFAULT_ACCOUNT = new AccountImpl(
             PersonName.getDefaultName(),
             AchievementListImpl.getEmptyList(),
             ResumeListImpl.getEmptyList());
 
-    public PersonImpl(PersonName name, AchievementList achievements, ResumeList resumes) {
-        this.name = name;
+    public AccountImpl(PersonName name, AchievementList achievements, ResumeList resumes) {
+        this.personName = name;
         this.achievements = achievements;
         this.resumes = resumes;
     }
 
     @Override
-    public PersonName getName() {
-        return name;
+    public PersonName getPersonName() {
+        return personName;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class PersonImpl implements Person {
 
     @Override
     public String toString() {
-        return getName().toString();
+        return getPersonName().toString();
     }
 
 }

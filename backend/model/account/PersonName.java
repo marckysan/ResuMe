@@ -1,4 +1,4 @@
-package backend.model.person;
+package backend.model.account;
 
 import static java.util.Objects.requireNonNull;
 import static backend.util.ArgumentChecker.checkArgument;

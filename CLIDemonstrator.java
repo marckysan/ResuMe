@@ -13,8 +13,8 @@ public class CLIDemonstrator {
 
         switch (command) {
 
-        case "getPerson":
-            System.out.println(backend.getPerson());
+        case "getAccount":
+            System.out.println(backend.getAccount());
             break;
 
         case "getAchievements":
