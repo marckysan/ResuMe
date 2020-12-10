@@ -34,8 +34,9 @@ interface ResumeSaver
 class ResumeSaverImpl
 ResumeSaver <|.. ResumeSaverImpl
 
-LogicImpl *-- ResumeSaver
-LogicImpl *-- ResumeGenerator
+LogicImpl *-- "1" ResumeSaver
+LogicImpl *-- "1" ResumeGenerator
+ResumeSaver --> Model.Resume
 
 interface ResumeGenerator
 class ResumeGeneratorImpl
