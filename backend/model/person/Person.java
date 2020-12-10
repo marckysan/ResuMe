@@ -12,6 +12,7 @@ public interface Person {
     int getNumAchievements();
     void addAchievement(Achievement achievement);
     void removeAchievement(Achievement achievement);
+    void removeAchievement(int index);
     void addResume(Resume resume);
     void removeResume(Resume resume);
 }

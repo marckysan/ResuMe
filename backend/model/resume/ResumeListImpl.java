@@ -92,10 +92,12 @@ public class ResumeListImpl implements ResumeList {
         if (isEmpty()) {
             return "Resume list is empty!";
         }
-
-        String resumes = "The following are your resumes:" + "\n";
+        String resumes = "Resume list:" + "\n";
+        int count = 0;
         for (Resume resume : internalList) {
-            resumes += resume.getFullName() + "\n";
+            resumes += Integer.toString(count) + ". "
+                    + resume.getFullName() + "\n";
+            count++;
         }
         return resumes;
     }

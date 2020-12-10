@@ -12,6 +12,10 @@ public class PersonalProject implements Achievement {
         this.description = description;
     }
 
+    public static PersonalProject of(String name, String description) {
+        return new PersonalProject(new AchievementName(name), new AchievementContents(description));
+    }
+
     @Override
     public AchievementName getName() {
         return name;

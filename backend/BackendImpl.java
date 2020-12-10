@@ -8,6 +8,7 @@ import backend.logic.ResumeSaver;
 import backend.logic.ResumeSaverImpl;
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
+import backend.model.achievement.PersonalProject;
 import backend.model.person.Person;
 import backend.model.person.PersonImpl;
 import backend.model.resume.Resume;
@@ -58,14 +59,15 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public void addAchievement(Achievement achievement) {
-        person.addAchievement(achievement);
+    public void addPersonalProject(String name, String description) {
+        Achievement project = PersonalProject.of(name, description);
+        person.addAchievement(project);
         storage.save(person);
     }
 
     @Override
-    public void removeAchievement(Achievement achievement) {
-        person.removeAchievement(achievement);
+    public void removeAchievement(int index) {
+        person.removeAchievement(index);
         storage.save(person);
     }
 

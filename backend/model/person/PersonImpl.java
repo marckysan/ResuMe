@@ -55,6 +55,11 @@ public class PersonImpl implements Person {
     }
 
     @Override
+    public void removeAchievement(int index) {
+        achievements.remove(index);
+    }
+
+    @Override
     public void addResume(Resume resume) {
         resumes.add(resume);
     }

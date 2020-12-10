@@ -52,6 +52,15 @@ public class AchievementListImpl implements AchievementList {
     }
 
     @Override
+    public void remove(int index) throws InvalidIndexException {
+        try {
+            internalList.remove(index);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidIndexException();
+        }
+    }
+
+    @Override
     public Achievement get(int index) throws InvalidIndexException {
         try {
             return internalList.get(index);
@@ -91,10 +100,12 @@ public class AchievementListImpl implements AchievementList {
         if (isEmpty()) {
             return "Achievement list is empty!";
         }
-
-        String achievements = "The following are your achievements:" + "\n";
+        String achievements = "Achievement list:" + "\n";
+        int count = 0;
         for (Achievement achievement : internalList) {
-            achievements += achievement.toString() + "\n";
+            achievements += Integer.toString(count) + ". "
+                    +  achievement.toString() + "\n";
+            count++;
         }
         return achievements;
     }
