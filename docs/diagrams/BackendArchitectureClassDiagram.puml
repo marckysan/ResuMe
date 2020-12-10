@@ -18,9 +18,12 @@ Backend <|.. BackendImpl
 interface Storage
 interface Person
 interface ResumeGenerator
+interface ResumeSaver
+
 BackendImpl *-- "1" Storage
 BackendImpl *-- "1" Person
 BackendImpl *-- "1" ResumeGenerator
+BackendImpl *-- "1" ResumeSaver
 
 }
 
