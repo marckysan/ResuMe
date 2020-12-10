@@ -3,10 +3,10 @@
 skinparam monochrome true
 hide empty members
 
-class Application
+class Main
 interface Frontend
-Application *-- "1" Backend.Backend
-Application *-- "1" Frontend
+Main *-- "1" Backend.Backend
+Main *-- "1" Frontend
 Frontend --> Backend.Backend
 
 namespace Backend {

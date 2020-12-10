@@ -9,7 +9,7 @@ We are now at the first iteration of our development, where we aim to create the
 
 Currently, the backend is nearing its completion stages for this iteration.
 The overall architecture of the backend and how it links to the frontend is as follows:
-![Backend Architectural Class Diagram](docs/images/BackendArchitectureClassDiagram.png)
+![Backend Architectural Class Diagram](docs/images/HighLevelClassDiagram.png)
 
 The detailed class diagram for the backend logic is as follows:
-![Backend Class Diagram](docs/images/NewBackendClassDiagram.png)
+![Backend Class Diagram](docs/images/DetailedClassDiagram.png)

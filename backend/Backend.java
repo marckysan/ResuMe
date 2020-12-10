@@ -18,4 +18,5 @@ public interface Backend {
     void selectAchievement(int index);
     void deselectAchievement(int index);
     Resume generateResume();
+    void saveAsPdf(Resume resume);
 }
