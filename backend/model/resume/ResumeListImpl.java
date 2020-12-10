@@ -82,7 +82,7 @@ public class ResumeListImpl implements ResumeList {
     public void remove(int index) throws InvalidIndexException {
         try {
             internalList.remove(index);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }

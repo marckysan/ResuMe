@@ -7,7 +7,6 @@ import backend.model.resume.ResumeList;
 public interface Backend {
     Person getPerson();
     AchievementList getAchievements();
-    int getNumAchievements();
     ResumeList getResumes();
     void addPersonalProject(String name, String description);
     void removeAchievement(int index);

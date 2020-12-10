@@ -55,11 +55,6 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public int getNumAchievements() {
-        return person.getNumAchievements();
-    }
-
-    @Override
     public void addPersonalProject(String name, String description) throws ModifyOnGenerationException {
         if (generator != null) {
             throw new ModifyOnGenerationException();
@@ -87,7 +82,7 @@ public class BackendImpl implements Backend {
     @Override
     public void selectAchievement(int index) {
         if (generator == null) {
-            generator = new ResumeGeneratorImpl(getNumAchievements());
+            generator = new ResumeGeneratorImpl(person.getNumAchievements());
         }
         generator.selectAchievement(index);
     }
@@ -95,7 +90,7 @@ public class BackendImpl implements Backend {
     @Override
     public void deselectAchievement(int index) {
         if (generator == null) {
-            generator = new ResumeGeneratorImpl(getNumAchievements());
+            generator = new ResumeGeneratorImpl(person.getNumAchievements());
         }
         generator.deselectAchievement(index);
     }
