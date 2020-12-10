@@ -30,13 +30,18 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public AchievementList getAchievements() {
+    public AchievementList getAchievementList() {
         return achievements;
     }
 
     @Override
-    public ResumeList getResumes() {
+    public ResumeList getResumeList() {
         return resumes;
+    }
+
+    @Override
+    public Resume getResume(int index) {
+        return resumes.get(index);
     }
 
     @Override
@@ -50,8 +55,8 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public void removeAchievement(Achievement achievement) {
-        achievements.remove(achievement);
+    public void removeAchievement(int index) {
+        achievements.remove(index);
     }
 
     @Override
@@ -60,8 +65,8 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public void removeResume(Resume resume) {
-        resumes.remove(resume);
+    public void removeResume(int index) {
+        resumes.remove(index);
     }
 
     @Override

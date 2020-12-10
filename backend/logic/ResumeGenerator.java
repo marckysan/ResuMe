@@ -7,5 +7,5 @@ public interface ResumeGenerator {
     boolean isValidIndex(int index);
     void selectAchievement(int index);
     void deselectAchievement(int index);
-    ResumeImpl generateResume(AchievementList achievements);
+    ResumeImpl generateResume(AchievementList achievements, String resumeName);
 }

@@ -1,13 +1,15 @@
 package backend;
 
 import backend.exception.CorruptedPersonDataException;
-import backend.exception.UninitializedGeneratorException;
+import backend.exception.AchievementsNotSelectedYetException;
+import backend.exception.ModifyOnGenerationException;
 import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
 import backend.logic.ResumeSaver;
 import backend.logic.ResumeSaverImpl;
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
+import backend.model.achievement.PersonalProject;
 import backend.model.person.Person;
 import backend.model.person.PersonImpl;
 import backend.model.resume.Resume;
@@ -44,47 +46,43 @@ public class BackendImpl implements Backend {
 
     @Override
     public AchievementList getAchievements() {
-        return person.getAchievements();
+        return person.getAchievementList();
     }
 
     @Override
     public ResumeList getResumes() {
-        return person.getResumes();
+        return person.getResumeList();
     }
 
     @Override
-    public int getNumAchievements() {
-        return person.getNumAchievements();
-    }
-
-    @Override
-    public void addAchievement(Achievement achievement) {
-        person.addAchievement(achievement);
+    public void addPersonalProject(String name, String description) throws ModifyOnGenerationException {
+        if (generator != null) {
+            throw new ModifyOnGenerationException();
+        }
+        Achievement project = PersonalProject.of(name, description);
+        person.addAchievement(project);
         storage.save(person);
     }
 
     @Override
-    public void removeAchievement(Achievement achievement) {
-        person.removeAchievement(achievement);
+    public void removeAchievement(int index) throws ModifyOnGenerationException {
+        if (generator != null) {
+            throw new ModifyOnGenerationException();
+        }
+        person.removeAchievement(index);
         storage.save(person);
     }
 
     @Override
-    public void addResume(Resume resume) {
-        person.addResume(resume);
-        storage.save(person);
-    }
-
-    @Override
-    public void removeResume(Resume resume) {
-        person.removeResume(resume);
+    public void removeResume(int index) {
+        person.removeResume(index);
         storage.save(person);
     }
 
     @Override
     public void selectAchievement(int index) {
         if (generator == null) {
-            generator = new ResumeGeneratorImpl(getNumAchievements());
+            generator = new ResumeGeneratorImpl(person.getNumAchievements());
         }
         generator.selectAchievement(index);
     }
@@ -92,24 +90,25 @@ public class BackendImpl implements Backend {
     @Override
     public void deselectAchievement(int index) {
         if (generator == null) {
-            generator = new ResumeGeneratorImpl(getNumAchievements());
+            generator = new ResumeGeneratorImpl(person.getNumAchievements());
         }
         generator.deselectAchievement(index);
     }
 
     @Override
-    public Resume generateResume() {
+    public void generateAndAddResume(String resumeName) {
         if (generator == null) {
-            throw new UninitializedGeneratorException();
+            throw new AchievementsNotSelectedYetException();
         }
-        Resume resume = generator.generateResume(person.getAchievements());
+        Resume resume = generator.generateResume(person.getAchievementList(), resumeName);
+        person.addResume(resume);
         generator = null;
-        return resume;
+        storage.save(person);
     }
 
     @Override
-    public void saveAsPdf(Resume resume) {
-        saver.saveAsPdf(resume);
+    public void saveAsPdf(int index) {
+        saver.saveAsPdf(person.getResume(index));
     }
 
 }
