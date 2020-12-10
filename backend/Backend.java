@@ -9,14 +9,11 @@ public interface Backend {
     AchievementList getAchievements();
     int getNumAchievements();
     ResumeList getResumes();
-
     void addPersonalProject(String name, String description);
     void removeAchievement(int index);
-
     void selectAchievement(int index);
     void deselectAchievement(int index);
-
-    void generateAndAddResume();
+    void generateAndAddResume(String resumeName);
     void removeResume(int index);
     void saveAsPdf(int index);
 }

@@ -2,6 +2,7 @@ package backend;
 
 import backend.exception.CorruptedPersonDataException;
 import backend.exception.AchievementsNotSelectedYetException;
+import backend.exception.ModifyOnGenerationException;
 import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
 import backend.logic.ResumeSaver;
@@ -59,14 +60,20 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public void addPersonalProject(String name, String description) {
+    public void addPersonalProject(String name, String description) throws ModifyOnGenerationException {
+        if (generator != null) {
+            throw new ModifyOnGenerationException();
+        }
         Achievement project = PersonalProject.of(name, description);
         person.addAchievement(project);
         storage.save(person);
     }
 
     @Override
-    public void removeAchievement(int index) {
+    public void removeAchievement(int index) throws ModifyOnGenerationException {
+        if (generator != null) {
+            throw new ModifyOnGenerationException();
+        }
         person.removeAchievement(index);
         storage.save(person);
     }
@@ -94,11 +101,11 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public void generateAndAddResume() {
+    public void generateAndAddResume(String resumeName) {
         if (generator == null) {
             throw new AchievementsNotSelectedYetException();
         }
-        Resume resume = generator.generateResume(person.getAchievementList());
+        Resume resume = generator.generateResume(person.getAchievementList(), resumeName);
         person.addResume(resume);
         generator = null;
         storage.save(person);

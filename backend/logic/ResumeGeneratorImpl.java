@@ -40,7 +40,7 @@ public class ResumeGeneratorImpl implements ResumeGenerator {
     }
 
     @Override
-    public ResumeImpl generateResume(AchievementList achievements) {
+    public ResumeImpl generateResume(AchievementList achievements, String resumeName) {
         String resumeText = "Achievements:" + "\n";
         for (Integer index : selector.getSelection()) {
             AchievementName name = achievements.getAchievementName(index);
@@ -48,7 +48,7 @@ public class ResumeGeneratorImpl implements ResumeGenerator {
             String achievementText = "- " + name.toString() + ": " + contents.toString();
             resumeText += achievementText + "\n";
         }
-        return new ResumeImpl(new ResumeName("Resume"), new ResumeContents(resumeText));
+        return new ResumeImpl(new ResumeName(resumeName), new ResumeContents(resumeText));
     }
 
 }
