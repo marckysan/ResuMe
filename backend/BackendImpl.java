@@ -112,9 +112,4 @@ public class BackendImpl implements Backend {
         saver.saveAsPdf(resume);
     }
 
-    public static void main(String[] args) {
-        BackendImpl backend = getBackend();
-        System.out.println(backend.getPerson().getName().getFullName());
-    }
-
 }
