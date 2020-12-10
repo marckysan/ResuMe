@@ -45,12 +45,12 @@ public class BackendImpl implements Backend {
 
     @Override
     public AchievementList getAchievements() {
-        return person.getAchievements();
+        return person.getAchievementList();
     }
 
     @Override
     public ResumeList getResumes() {
-        return person.getResumes();
+        return person.getResumeList();
     }
 
     @Override
@@ -98,15 +98,15 @@ public class BackendImpl implements Backend {
         if (generator == null) {
             throw new AchievementsNotSelectedYetException();
         }
-        Resume resume = generator.generateResume(person.getAchievements());
+        Resume resume = generator.generateResume(person.getAchievementList());
         person.addResume(resume);
         generator = null;
         storage.save(person);
     }
 
     @Override
-    public void saveAsPdf(Resume resume) {
-        saver.saveAsPdf(resume);
+    public void saveAsPdf(int index) {
+        saver.saveAsPdf(person.getResume(index));
     }
 
 }

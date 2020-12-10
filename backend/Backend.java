@@ -2,7 +2,6 @@ package backend;
 
 import backend.model.achievement.AchievementList;
 import backend.model.person.Person;
-import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 
 public interface Backend {
@@ -19,5 +18,5 @@ public interface Backend {
 
     void generateAndAddResume();
     void removeResume(int index);
-    void saveAsPdf(Resume resume);
+    void saveAsPdf(int index);
 }

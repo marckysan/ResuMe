@@ -20,8 +20,8 @@ public class JsonPersonSerializer {
     public JSONObject serialize() {
         // Extract all Person attributes
         PersonName personName = person.getName();
-        AchievementList achievements = person.getAchievements();
-        ResumeList resumes = person.getResumes();
+        AchievementList achievements = person.getAchievementList();
+        ResumeList resumes = person.getResumeList();
         JSONObject personDetails = new JSONObject();
 
         // Generate JSON data for each attribute

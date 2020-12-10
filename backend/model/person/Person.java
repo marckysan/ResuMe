@@ -7,13 +7,12 @@ import backend.model.resume.ResumeList;
 
 public interface Person {
     PersonName getName();
-    AchievementList getAchievements();
-    ResumeList getResumes();
+    AchievementList getAchievementList();
+    ResumeList getResumeList();
+    Resume getResume(int index);
     int getNumAchievements();
     void addAchievement(Achievement achievement);
-    void removeAchievement(Achievement achievement);
     void removeAchievement(int index);
     void addResume(Resume resume);
-    void removeResume(Resume resume);
     void removeResume(int index);
 }
