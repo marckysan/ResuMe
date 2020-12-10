@@ -8,14 +8,17 @@ import backend.model.resume.ResumeList;
 public interface Backend {
     Person getPerson();
     AchievementList getAchievements();
-    ResumeList getResumes();
     int getNumAchievements();
+    ResumeList getResumes();
+
     void addPersonalProject(String name, String description);
     void removeAchievement(int index);
-    void addResume(Resume resume);
-    void removeResume(Resume resume);
+
     void selectAchievement(int index);
     void deselectAchievement(int index);
+
     Resume generateResume();
+    void addResume(Resume resume);
+    void removeResume(int index);
     void saveAsPdf(Resume resume);
 }

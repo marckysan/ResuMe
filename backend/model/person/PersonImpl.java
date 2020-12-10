@@ -70,6 +70,11 @@ public class PersonImpl implements Person {
     }
 
     @Override
+    public void removeResume(int index) {
+        resumes.remove(index);
+    }
+
+    @Override
     public String toString() {
         return getName().toString();
     }

@@ -9,4 +9,5 @@ public interface ResumeList {
     ResumeContents getResumeContents(int index);
     void add(Resume resume);
     void remove(Resume resume);
+    void remove(int index);
 }

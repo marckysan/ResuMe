@@ -3,7 +3,6 @@ package backend.model.resume;
 import backend.exception.DuplicateResumeException;
 import backend.exception.InvalidIndexException;
 import backend.exception.ResumeNotFoundException;
-import backend.model.achievement.Achievement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +76,15 @@ public class ResumeListImpl implements ResumeList {
         }
         assert (this.contains(resume));
         internalList.remove(resume);
+    }
+
+    @Override
+    public void remove(int index) throws InvalidIndexException {
+        try {
+            internalList.remove(index);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new InvalidIndexException();
+        }
     }
 
     @Override

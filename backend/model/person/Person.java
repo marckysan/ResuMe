@@ -15,4 +15,5 @@ public interface Person {
     void removeAchievement(int index);
     void addResume(Resume resume);
     void removeResume(Resume resume);
+    void removeResume(int index);
 }

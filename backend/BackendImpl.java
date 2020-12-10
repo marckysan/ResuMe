@@ -78,8 +78,8 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public void removeResume(Resume resume) {
-        person.removeResume(resume);
+    public void removeResume(int index) {
+        person.removeResume(index);
         storage.save(person);
     }
 
