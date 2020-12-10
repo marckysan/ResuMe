@@ -3,11 +3,11 @@ import backend.BackendImpl;
 
 import java.util.Scanner;
 
-public class Main {
+public class CLIDemonstrator {
 
     public Backend backend = BackendImpl.getBackend();
 
-    public Main() {}
+    public CLIDemonstrator() {}
 
     private void execute(String command, Scanner scanner) {
 
@@ -80,7 +80,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main main = new Main();
+        CLIDemonstrator main = new CLIDemonstrator();
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {

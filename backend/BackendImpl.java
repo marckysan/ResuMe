@@ -7,6 +7,8 @@ import backend.logic.ResumeGenerator;
 import backend.logic.ResumeGeneratorImpl;
 import backend.logic.ResumeSaver;
 import backend.logic.ResumeSaverImpl;
+import backend.login.LoginManager;
+import backend.login.LoginManagerImpl;
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
 import backend.model.achievement.PersonalProject;
@@ -19,9 +21,13 @@ import backend.storage.StorageImpl;
 
 public class BackendImpl implements Backend {
 
+    private LoginManager loginManager = new LoginManagerImpl();
+
     private Person person;
+
     private ResumeGenerator generator = null;
     private final ResumeSaver saver = new ResumeSaverImpl();
+
     private final Storage storage = new StorageImpl();
 
     private static final BackendImpl BACKEND = new BackendImpl();
@@ -37,6 +43,26 @@ public class BackendImpl implements Backend {
 
     public static BackendImpl getBackend() {
         return BACKEND;
+    }
+
+    @Override
+    public boolean isLoggedIn() {
+        return loginManager.isLoggedIn();
+    }
+
+    @Override
+    public void login() {
+        loginManager.login();
+    }
+
+    @Override
+    public void logout() {
+        loginManager.logout();
+    }
+
+    @Override
+    public void register() {
+        loginManager.register();
     }
 
     @Override

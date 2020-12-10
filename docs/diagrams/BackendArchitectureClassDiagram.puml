@@ -5,6 +5,7 @@ hide empty members
 
 class Main
 interface Frontend
+
 Main *-- "1" Backend.Backend
 Main *-- "1" Frontend
 Frontend --> Backend.Backend
@@ -19,11 +20,13 @@ interface Storage
 interface Person
 interface ResumeGenerator
 interface ResumeSaver
+interface LoginManager
 
 BackendImpl *-- "1" Storage
 BackendImpl *-- "1" Person
 BackendImpl *-- "1" ResumeGenerator
 BackendImpl *-- "1" ResumeSaver
+BackendImpl *-- "1" LoginManager
 
 }
 
