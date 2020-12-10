@@ -10,6 +10,8 @@ import java.util.Objects;
 
 public class AchievementListImpl implements AchievementList {
 
+    private static final String EMPTY_ACHIEVEMENT_LIST_MESSAGE = "Achievement list is empty!";
+
     private final List<Achievement> internalList = new ArrayList<>();
 
     private AchievementListImpl() {}
@@ -64,7 +66,7 @@ public class AchievementListImpl implements AchievementList {
     public Achievement get(int index) throws InvalidIndexException {
         try {
             return internalList.get(index);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -73,7 +75,7 @@ public class AchievementListImpl implements AchievementList {
     public AchievementName getAchievementName(int index) throws InvalidIndexException {
         try {
             return internalList.get(index).getName();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -82,7 +84,7 @@ public class AchievementListImpl implements AchievementList {
     public AchievementContents getAchievementContents(int index) throws InvalidIndexException {
         try {
             return internalList.get(index).getContents();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -98,7 +100,7 @@ public class AchievementListImpl implements AchievementList {
     @Override
     public String toString() {
         if (isEmpty()) {
-            return "Achievement list is empty!";
+            return EMPTY_ACHIEVEMENT_LIST_MESSAGE;
         }
         String achievements = "Achievement list:" + "\n";
         int count = 0;

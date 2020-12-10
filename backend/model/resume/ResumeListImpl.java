@@ -10,6 +10,8 @@ import java.util.Objects;
 
 public class ResumeListImpl implements ResumeList {
 
+    private static final String EMPTY_RESUME_LIST_MESSAGE = "Resume list is empty!";
+
     private final List<Resume> internalList = new ArrayList<>();
 
     private ResumeListImpl() {}
@@ -37,7 +39,7 @@ public class ResumeListImpl implements ResumeList {
     public Resume get(int index) throws InvalidIndexException {
         try {
             return internalList.get(index);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -46,7 +48,7 @@ public class ResumeListImpl implements ResumeList {
     public ResumeName getResumeName(int index) {
         try {
             return internalList.get(index).getName();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -55,7 +57,7 @@ public class ResumeListImpl implements ResumeList {
     public ResumeContents getResumeContents(int index) {
         try {
             return internalList.get(index).getContents();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException();
         }
     }
@@ -98,7 +100,7 @@ public class ResumeListImpl implements ResumeList {
     @Override
     public String toString() {
         if (isEmpty()) {
-            return "Resume list is empty!";
+            return EMPTY_RESUME_LIST_MESSAGE;
         }
         String resumes = "Resume list:" + "\n";
         int count = 0;
