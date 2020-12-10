@@ -3,6 +3,7 @@ package backend.model.resume;
 import backend.exception.DuplicateResumeException;
 import backend.exception.InvalidIndexException;
 import backend.exception.ResumeNotFoundException;
+import backend.model.achievement.Achievement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,19 @@ public class ResumeListImpl implements ResumeList {
         if (o == null || getClass() != o.getClass()) return false;
         ResumeListImpl that = (ResumeListImpl) o;
         return Objects.equals(internalList, that.internalList);
+    }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "Resume list is empty!";
+        }
+
+        String resumes = "The following are your resumes:" + "\n";
+        for (Resume resume : internalList) {
+            resumes += resume.getFullName() + "\n";
+        }
+        return resumes;
     }
 
 }
