@@ -31,14 +31,23 @@ public class Main {
             break;
 
         case "addPersonalProject":
-            Scanner scanner = new Scanner(System.in);
+            Scanner s1 = new Scanner(System.in);
             System.out.println("Name:");
-            String name = scanner.nextLine();
+            String name = s1.nextLine();
             System.out.println("description:");
-            String description = scanner.nextLine();
+            String description = s1.nextLine();
             backend.addPersonalProject(name, description);
             System.out.println("Personal project added.");
+            s1.close();
             break;
+
+        case "removeAchievement":
+            Scanner s2 = new Scanner(System.in);
+            System.out.println("Index to remove:");
+            String index = s2.nextLine();
+            backend.removeAchievement(Integer.valueOf(index));
+            System.out.println("Achievement removed.");
+            s2.close();
         }
 
     }
