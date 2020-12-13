@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 public class ResumeSaverImpl implements ResumeSaver {
 
     private final String PDF_FILE_EXTENSION = ".pdf";
-    private final String DEFAULT_DATAPATH = "data";
+    private final Path DEFAULT_DATAPATH = Paths.get(System.getProperty("user.home"), "Desktop");
 
     private final Font DEFAULT_FONT = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
 
@@ -23,7 +23,7 @@ public class ResumeSaverImpl implements ResumeSaver {
             String pdfName = resume.getFullName() + PDF_FILE_EXTENSION;
             String pdfContents = resume.getFullContents();
 
-            Path filepath = Paths.get(DEFAULT_DATAPATH, pdfName);
+            Path filepath = Paths.get(DEFAULT_DATAPATH.toString(), pdfName);
 
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(filepath.toString()));
