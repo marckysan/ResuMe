@@ -30,6 +30,11 @@ public class PersonImpl implements Person {
     }
 
     @Override
+    public Achievement getAchievement(int index) {
+        return achievements.get(index);
+    }
+
+    @Override
     public AchievementList getAchievementList() {
         return achievements;
     }

@@ -45,6 +45,11 @@ public class BackendImpl implements Backend {
     }
 
     @Override
+    public Achievement getAchievement(int index) {
+        return person.getAchievement(index);
+    }
+
+    @Override
     public AchievementList getAchievements() {
         return person.getAchievementList();
     }
@@ -93,6 +98,11 @@ public class BackendImpl implements Backend {
             generator = new ResumeGeneratorImpl(person.getNumAchievements());
         }
         generator.deselectAchievement(index);
+    }
+
+    @Override
+    public Resume getResume(int index) {
+        return person.getResume(index);
     }
 
     @Override

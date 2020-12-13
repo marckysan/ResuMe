@@ -7,6 +7,7 @@ import backend.model.resume.ResumeList;
 
 public interface Person {
     PersonName getName();
+    Achievement getAchievement(int index);
     AchievementList getAchievementList();
     ResumeList getResumeList();
     Resume getResume(int index);
