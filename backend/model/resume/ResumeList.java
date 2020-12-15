@@ -1,5 +1,7 @@
 package backend.model.resume;
 
+import java.util.List;
+
 public interface ResumeList {
     boolean isEmpty();
     boolean contains(Resume resume);
@@ -10,4 +12,5 @@ public interface ResumeList {
     void add(Resume resume);
     void remove(Resume resume);
     void remove(int index);
+    List<Resume> asList();
 }
