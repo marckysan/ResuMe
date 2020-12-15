@@ -1,5 +1,7 @@
 package backend.model.achievement;
 
+import java.util.List;
+
 public interface AchievementList {
     boolean isEmpty();
     boolean contains(Achievement achievement);
@@ -10,4 +12,5 @@ public interface AchievementList {
     Achievement get(int index);
     AchievementName getAchievementName(int index);
     AchievementContents getAchievementContents(int index);
+    List<Achievement> asList();
 }

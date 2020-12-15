@@ -3,11 +3,11 @@
 skinparam monochrome true
 hide empty members
 
-class Backend
-Backend --> Logic.ResumeSaver
-Backend --> Logic.ResumeGenerator
-Backend *-- "1" Model.Person
-Backend *-- "1" Storage.Storage
+class BackendController
+BackendController --> Logic.ResumeSaver
+BackendController --> Logic.ResumeGenerator
+BackendController *-- "1" Model.Person
+BackendController *-- "1" Storage.Storage
 
 namespace Storage {
 

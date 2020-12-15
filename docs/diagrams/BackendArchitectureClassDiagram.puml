@@ -3,12 +3,6 @@
 skinparam monochrome true
 hide empty members
 
-class Main
-interface Frontend
-Main *-- "1" Backend.Backend
-Main *-- "1" Frontend
-Frontend --> Backend.Backend
-
 namespace Backend {
 
 interface Backend
