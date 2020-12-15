@@ -2,13 +2,10 @@ package backend;
 
 import backend.model.achievement.Achievement;
 import backend.model.achievement.AchievementList;
-import backend.model.person.Person;
 import backend.model.resume.Resume;
 import backend.model.resume.ResumeList;
 
 public interface Backend {
-    Person getPerson();
-
     Achievement getAchievement(int index);
     AchievementList getAchievements();
     void addPersonalProject(String name, String description);

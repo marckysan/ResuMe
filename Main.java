@@ -13,10 +13,6 @@ public class Main {
 
         switch (command) {
 
-        case "getPerson":
-            System.out.println(backend.getPerson());
-            break;
-
         case "getAchievements":
             System.out.println(backend.getAchievements());
             break;

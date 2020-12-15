@@ -40,11 +40,6 @@ public class BackendImpl implements Backend {
     }
 
     @Override
-    public Person getPerson() {
-        return person;
-    }
-
-    @Override
     public Achievement getAchievement(int index) {
         return person.getAchievement(index);
     }
