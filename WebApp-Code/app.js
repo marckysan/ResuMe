@@ -16,6 +16,10 @@ var aboutUsRouter = require('./routes/aboutUs');
 var myAchievementsRouter = require('./routes/myAchievements');
 var myResumesRouter = require('./routes/myResumes');
 var myProfileRouter = require('./routes/myProfile');
+var dashboardRouter = require('./routes/dashboard');
+var forgetPasswordRouter = require('./routes/forgetPassword');
+var addNewProjectRouter = require('./routes/addNewProject');
+var addNewResumeRouter = require('./routes/addNewResume');
 
 
 const app = express();
@@ -53,7 +57,10 @@ app.use('/aboutUs', aboutUsRouter);
 app.use('/myAchievements', myAchievementsRouter);
 app.use('/myResumes', myResumesRouter);
 app.use('/myProfile', myProfileRouter);
-
+app.use('/dashboard, dashboardRouter');
+app.use('/forgetPassword', forgetPasswordRouter);
+app.use('/addNewProject', addNewProjectRouter);
+app.use('/addNewResume', addNewResumeRouter);
 
 
 
