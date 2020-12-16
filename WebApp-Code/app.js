@@ -7,11 +7,15 @@ const flash = require("connect-flash");
 const cookieParser = require('cookie-parser');
 const session = require('express-session'); // Allow storing of session data
 const passport = require("passport"); // Authentication of user
-var passportinit = require("./passportinit");
+// var passportinit = require("./passportinit");
 
 
 // Files for the Routes
 var homeRouter = require('./routes/home');
+var aboutUsRouter = require('./routes/aboutUs');
+var myAchievementsRouter = require('./routes/myAchievements');
+var myResumesRouter = require('./routes/myResumes');
+var myProfileRouter = require('./routes/myProfile');
 
 
 const app = express();
@@ -30,10 +34,10 @@ app.use(session({
   saveUninitialized: true,
   resave: false
 }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-passportinit();
+//
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passportinit();
 
 app.use(flash());
 app.use(function (req, res, next) {
@@ -45,6 +49,12 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use('/', homeRouter);
+app.use('/aboutUs', aboutUsRouter);
+app.use('/myAchievements', myAchievementsRouter);
+app.use('/myResumes', myResumesRouter);
+app.use('/myProfile', myProfileRouter);
+
+
 
 
 app.listen(process.env.PORT || 3030, function() {
