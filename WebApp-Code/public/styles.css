@@ -1,0 +1,40 @@
+/**************************************** Headers ****************************************/
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+/**************************************** MainBackground ****************************************/
+
+
+
+/**************************************** Logged Out Page ****************************************/
+.mainBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100VH;
+}
+
+.signIn {
+  background-color: white;
+  display: flex;
+  justify-content:center;
+  padding: 30px;
+  margin: 80px;
+  margin-left: 250px;
+  border-radius: 10px;
+}
+
+.register {
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 30px;
+  padding-left: 30px;
+  margin: 80px;
+  margin-right: 250px;
+  border-radius: 10px;
+  width: 366.08px;
+}
