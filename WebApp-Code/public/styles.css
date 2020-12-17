@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 100VH;
+  height: 100%;
 }
 
 .signIn {
@@ -33,8 +33,35 @@
   justify-content: flex-start;
   padding-top: 30px;
   padding-left: 30px;
+  padding-bottom: 30px;
   margin: 80px;
   margin-right: 250px;
   border-radius: 10px;
   width: 366.08px;
+}
+
+
+/**************************************** Dashboard ****************************************/
+.dashboardBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+#dashboardCarousel {
+  width:100%;
+  height: 800px;
+  padding: 50px;
+}
+#carouselFirstImage {
+  height: 800px;
+  padding: 80px;
+  margin-top: -60px;
+}
+#carouselSecondImage {
+  height: 800px;
+  padding: 80px;
+  margin-top: -60px;
 }

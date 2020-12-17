@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
 router.get("/", function(req, res, next) {
-    res.render("loggedOut");
+    res.render("logInRegister");
 });
 
 module.exports = router;

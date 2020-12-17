@@ -20,7 +20,6 @@ var dashboardRouter = require('./routes/dashboard');
 var forgetPasswordRouter = require('./routes/forgetPassword');
 var addNewProjectRouter = require('./routes/addNewProject');
 var addNewResumeRouter = require('./routes/addNewResume');
-var loggedOutRouter = require('./routes/loggedOut');
 
 
 const app = express();
@@ -62,7 +61,6 @@ app.use('/dashboard', dashboardRouter);
 app.use('/forgetPassword', forgetPasswordRouter);
 app.use('/addNewProject', addNewProjectRouter);
 app.use('/addNewResume', addNewResumeRouter);
-app.use('/loggedOut', loggedOutRouter);
 
 
 
