@@ -290,17 +290,50 @@ body, table, input, select, textarea {
 
 
 /**************************************** My Achievements ****************************************/
+.myAchievementsBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.achievementResumeButtons {
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.PersonalProjectTitleButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.addNewPersonalProject {
+  margin-left: 30px;
+  margin-top: 7px;
+}
+
+.achievementTableAccessButtons {
+  display: flex;
+  flex-direction: row;
+
+}
+
 .fixed_header{
     width: 80%;
-    table-layout:auto;
-    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 20px;
+    border-radius: 40px;
+    margin-left: 150px;
 }
 
 .fixed_header tbody{
   display:block;
-  width: 80%;
+  width: auto;
   overflow: auto;
-  height: 100px;
+  height: 250px;
 }
 
 .fixed_header thead tr {
@@ -314,6 +347,62 @@ body, table, input, select, textarea {
 
 .fixed_header th, .fixed_header td {
   padding: 5px;
-  text-align: left;
+  text-align: center;
   width: 200px;
+}
+
+.personalProjectDescription {
+  width: 300px;
+}
+
+.personalProjectOptions {
+  width: 20px;
+  margin-left: 50px;
+}
+
+.filler {
+    background-color: lightgray;
+    height:50px;
+}
+
+/**************************************** Add New Personal Projects ****************************************/
+.addNewAchievementsBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.addNewProjectBox {
+  width: 80%;
+  height: 500px;
+  background-color: #F5F2D0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 150px;
+  border-radius: 30px;
+}
+
+.addNewProjectBoxTitle {
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.horizontalForm {
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+#projectDescription {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 30px;
+}
+
+#dateInputs {
+  margin-top: 25px;
+  padding-bottom: 25px;
 }
