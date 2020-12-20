@@ -290,3 +290,30 @@ body, table, input, select, textarea {
 
 
 /**************************************** My Achievements ****************************************/
+.fixed_header{
+    width: 80%;
+    table-layout:auto;
+    border-collapse: collapse;
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 80%;
+  overflow: auto;
+  height: 100px;
+}
+
+.fixed_header thead tr {
+   display: block;
+}
+
+.fixed_header thead {
+  background: black;
+  color:#fff;
+}
+
+.fixed_header th, .fixed_header td {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
+}
