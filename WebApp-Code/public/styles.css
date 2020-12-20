@@ -406,3 +406,27 @@ body, table, input, select, textarea {
   margin-top: 25px;
   padding-bottom: 25px;
 }
+
+
+/**************************************** Add New Resume ****************************************/
+.addNewResumeBox {
+  width: 80%;
+  height: auto;
+  background-color: #F5F2D0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 150px;
+  border-radius: 30px;
+  padding-top: 40px;
+}
+
+.addNewResumeBoxTitle {
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+
+.achievementListAndResumeDetails {
+  width: 80%;
+}
