@@ -12,7 +12,8 @@
 
 /**************************************** Footers ****************************************/
 .footer {
-    position:sticky;
+    position:static;
+    text-align: center;
     bottom: 0;
     width: 100%;
     height: 120px;
@@ -22,6 +23,7 @@
 
 .text-muted {
     color: #6c757d!important;
+    margin: 0;
 }
 
 #footer {
@@ -76,6 +78,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 50px;
   height: 100%;
 }
 
@@ -109,9 +112,11 @@
 .personalChart {
   background-color: white;
   display: flex;
+  padding: 50px;
   flex-direction: row;
   justify-content: center;
-  height: 500px;
+  height: 550px;
+  width: 100%;
 }
 
 
@@ -266,18 +271,10 @@ body, table, input, select, textarea {
 
 } /* grid only */
 
-
-.dashboardProfileLogo {
-  background-color: lightgray;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 500px;
-}
-
 #dashboardProfilePic {
-  margin-top: 125px;
-  border-radius: 60px;
+  height: 80px;
+  width: 80px;
+  padding: 15px;
 }
 
 
