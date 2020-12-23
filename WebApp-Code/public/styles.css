@@ -478,11 +478,10 @@ body, table, input, select, textarea {
 
 .myProfileBackground {
   background-color: lightgray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 50px;
-  height: 100%;
+}
+
+.item-count {
+  padding: 10px;
 }
 
 /**************************** Edit Profile ************************/
@@ -528,7 +527,7 @@ body, table, input, select, textarea {
 .card-body {
   padding: 1.5rem;
   flex: 1 1 auto;
-  background-color: #f1f6f9;
+  background-color: #fff;
 }
 
 .card-header {
