@@ -20,7 +20,7 @@ var dashboardRouter = require('./routes/dashboard');
 var forgetPasswordRouter = require('./routes/forgetPassword');
 var addNewProjectRouter = require('./routes/addNewProject');
 var addNewResumeRouter = require('./routes/addNewResume');
-
+var editProfileRouter = require('./routes/editProfile');
 
 const app = express();
 
@@ -61,8 +61,7 @@ app.use('/dashboard', dashboardRouter);
 app.use('/forgetPassword', forgetPasswordRouter);
 app.use('/addNewProject', addNewProjectRouter);
 app.use('/addNewResume', addNewResumeRouter);
-
-
+app.use('/editProfile', editProfileRouter);
 
 app.listen(process.env.PORT || 3030, function() {
   console.log("Server started on port 3030")
