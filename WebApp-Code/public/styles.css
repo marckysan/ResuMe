@@ -15,6 +15,12 @@
   width : 175px;
 }
 
+.profile-button {
+  background: transparent;
+  border: transparent;
+  text-align: center;
+}
+
 /**************************************** Footers ****************************************/
 .footer {
     position:relative;
@@ -66,23 +72,18 @@
   background-color: white;
   display: flex;
   justify-content:center;
-  padding: 30px;
-  margin: 80px;
-  margin-left: 250px;
+  padding: 40px;
+  margin: 40px;
   border-radius: 10px;
 }
 
 .register {
   background-color: white;
   display: flex;
-  justify-content: flex-start;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 30px;
-  margin: 80px;
-  margin-right: 250px;
+  justify-content: center;
+  padding: 40px;
+  margin: 40px;
   border-radius: 10px;
-  width: 366.08px;
 }
 
 
@@ -636,4 +637,42 @@ textarea.form-control {
   .form-inline .input-group {
     width: auto;
   }
+}
+
+/****************** About Us ****************/
+.top-container {
+  text-align: center;
+}
+.middle-container {
+  position: relative;
+  margin: 50px 0;
+}
+
+.intro-item {
+  width: 50%;
+  margin: auto auto auto auto;
+}
+
+#what-we-do {
+  width: 40%;
+  margin-left: 15rem;
+  text-align: left;
+}
+
+#who-we-are {
+  width: 40%;
+  margin-right: 15rem;
+  text-align: right;
+}
+
+.about-us-hr {
+  border: dotted #e0e0e0 6px;
+  border-bottom: none;
+  width: 4%;
+  margin: 50px auto;
+}
+
+.contact-details {
+  text-align: center;
+  margin: auto 100px;
 }

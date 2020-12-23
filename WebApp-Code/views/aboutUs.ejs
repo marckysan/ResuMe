@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <%- include("loggedInHeader") %>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles.css" type="text/css">
+  <link rel="icon" href="/images/favicon.ico" type="image/favicon.ico">
+  <title>About Us</title>
+</head>
+
+<body>
+  <div class="top-container d-flex align-items-center" style="min-height: 400px; background-image: url(https://phogulum.com/wp-content/uploads/clouds-sea-gray-blue.jpg); background-size: cover; background-position: center top;">
+    <div class="about-us-overview container-fluid d-flex align-items-center col-lg-4">
+      <div class="resume-intro">
+        <h1 class="display-2 text-white">ResuMe</h1>
+        <p class="text-white">A personalised repository of achievements to help with the hustle.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="middle-container">
+    <div class="intro-item" id="what-we-do">
+      <h1>What We Do</h1>
+      <p>ResuMe provides a simple solution for students and job-seekers alike to keep our portfolios in order for upcoming hiring seasons.</p>
+    </div>
+
+    <hr class="about-us-hr">
+
+    <div class="intro-item" id="who-we-are">
+      <h1>Who We Are</h1>
+      <p>We are a group of 4 students from the National University of Singapore. ResuMe began as a pet project to fill our time meaningfully during the Winter holidays.</p>
+    </div>
+  </div>
+
+  <hr class="about-us-hr">
+
+  <div class="contact-us">
+    <h2>Get In Touch</h2>
+    <p class="contact-message">Do drop us an email for any enquiries, or if you would like to see more from ResuMe.</p>
+    <div class="row">
+      <div class="col">
+        <div class="contact-details d-flex">
+          <div class="contact-email col-sm-4">
+            <a class="description">Email: resume@email.com</a>
+          </div>
+          <div class="contact-number col-sm-4">
+            <a class="description">Phone: 61234578</a>
+          </div>
+          <div class="contact-address col-sm-4">
+            <a class="heading">Address: 1 Abc Road</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include("footer") %>
+
+</html>
