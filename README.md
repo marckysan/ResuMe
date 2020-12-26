@@ -8,10 +8,10 @@ We are now at the first iteration of our development, where we aim to create the
 - Ability to generate plain text resumes to be saved as PDF
 
 ## Guide to Use
-# Step 1
+### Step 1
 - Clone git repository
 
-# Step 2
+### Step 2
 - Install node and necessary packages by keying in these commands in order when navigated to webapp-code
 - npm init
 - npm install ejs
@@ -27,7 +27,7 @@ We are now at the first iteration of our development, where we aim to create the
 - npm install cookie-parser
 - npm install express-session
 
-# Step 3
+### Step 3
 - Access the local version of website by keying in this command
 - node app.js
 - Access through localhost:3030 in your web browser
