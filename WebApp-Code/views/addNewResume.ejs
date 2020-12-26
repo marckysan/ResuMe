@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <%- include("loggedInHeader") %>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/styles.css" type="text/css">
+  <link rel="icon" href="/images/favicon.ico" type="image/favicon.ico">
+  <title>Add New Resume</title>
+</head>
+
+<body>
+
+  <div class="addNewAchievementsBackground ">
+    <div class="achievementResumeButtons">
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-info" onclick="location.href ='/myAchievements'">My Achievements</button>
+        <button type="button" class="btn btn-outline-info active" onclick="location.href ='/myResumes'">My Resumes</button>
+      </div>
+    </div>
+
+    <div class="PersonalProjectTitleButton">
+      <div class="personalProjectTitle">
+        <h1 class="display-6">Generate a New Resume</h1>
+        <hr width="100%">
+      </div>
+    </div>
+
+    <div class="addNewResumeBox">
+      <div class="addNewResumeBoxTitle">
+        <h3 class="display-6">New Resume</h3>
+      </div>
+
+      <div class="achievementListAndResumeDetails">
+        <div class="horizontalForm">
+          <form class="row g-3" action="/addNewResume" method="post">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <nav>
+                    <p><em>My Personal Projects</em></p>
+                    <ul>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="personalProject1">
+                          <label class="form-check-label" for="personalProject1">
+                            personalProject1
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="personalProject2">
+                          <label class="form-check-label" for="personalProject2">
+                            personalProject2
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="personalProject3">
+                          <label class="form-check-label" for="personalProject3">
+                            personalProject3
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="personalProject4">
+                          <label class="form-check-label" for="personalProject4">
+                            personalProject4
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="personalProject5">
+                          <label class="form-check-label" for="personalProject5">
+                            personalProject5
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="col">
+                  <div class="mb-3" required>
+                    <label for="resumeName" class="form-label">Resume Name</label>
+                    <input type="text" class="form-control" id="resumeName" placeholder="Bob's Resume" required>
+                  </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <nav>
+                    <p><em>My Work Experiences</em></p>
+                    <ul>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="workExperience1">
+                          <label class="form-check-label" for="workExperience1">
+                            workExperience1
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="workExperience2">
+                          <label class="form-check-label" for="workExperience2">
+                            workExperience2
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="workExperience3">
+                          <label class="form-check-label" for="workExperience3">
+                            workExperience3
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="workExperience4">
+                          <label class="form-check-label" for="workExperience4">
+                            workExperience4
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="workExperience5">
+                          <label class="form-check-label" for="workExperience5">
+                            workExperience5
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <span class="input-group-text">Resume Description (Optional)</span>
+                    <textarea class="form-control" aria-label="With textarea" name="resumeDescription"></textarea>
+                  </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <nav>
+                    <p><em>My Achievements</em></p>
+                    <ul>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="achievement1">
+                          <label class="form-check-label" for="achievement1">
+                            achievement1
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="achievement2">
+                          <label class="form-check-label" for="achievement2">
+                            achievement2
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="achievement3">
+                          <label class="form-check-label" for="achievement3">
+                            achievement3
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="achievement4">
+                          <label class="form-check-label" for="achievement4">
+                            achievement4
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="achievement5">
+                          <label class="form-check-label" for="achievement5">
+                            achievement5
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="col"><button type="button" class="btn btn-outline-info" onclick="location.href ='/myResumes'">Save Resume</button></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="filler">
+
+  </div>
+
+  </div>
+
+</body>
+<%- include("footer") %>
+
+</html>

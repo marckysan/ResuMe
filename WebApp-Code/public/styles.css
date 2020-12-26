@@ -10,18 +10,40 @@
         box-shadow: 0 8px 6px -6px grey;
 }
 
+#loggedOutHeader {
+  height: 30px;
+  width : 175px;
+}
+
+.profile-button {
+  background: transparent;
+  border: transparent;
+  text-align: center;
+}
+
 /**************************************** Footers ****************************************/
 .footer {
-    position:sticky;
-    bottom: 0;
-    width: 100%;
-    height: 120px;
-    line-height: 60px;
+    position:relative;
+    text-align: center;
+    line-height: 30px;
     background-color: #f5f5f5;
+    padding: 40px 0 10px;
+}
+
+.contact-us {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  padding: 0 0 20px 0;
 }
 
 .text-muted {
     color: #6c757d!important;
+    margin: 0;
 }
 
 #footer {
@@ -50,38 +72,47 @@
   background-color: white;
   display: flex;
   justify-content:center;
-  padding: 30px;
-  margin: 80px;
-  margin-left: 250px;
+  padding: 40px;
+  margin: 40px;
   border-radius: 10px;
 }
 
 .register {
   background-color: white;
   display: flex;
-  justify-content: flex-start;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 30px;
-  margin: 80px;
-  margin-right: 250px;
+  justify-content: center;
+  padding: 40px;
+  margin: 40px;
   border-radius: 10px;
-  width: 366.08px;
 }
 
 
+/**************************************** Forget Password ****************************************/
+.forgetPasswordBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px;
+  height: 100%;
+  margin-top: -20px;
+  padding-top: 150px;
+  padding-bottom: -200px;
+
+}
 /**************************************** Dashboard ****************************************/
 .dashboardBackground {
   background-color: lightgray;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 50px;
   height: 100%;
 }
 
 #welcome {
   text-align: center;
-  color: #2c75ff;
+  color: #00587a;
 }
 
 #whattodo {
@@ -109,9 +140,11 @@
 .personalChart {
   background-color: white;
   display: flex;
+  padding: 50px;
   flex-direction: row;
   justify-content: center;
-  height: 500px;
+  height: 550px;
+  width: 100%;
 }
 
 
@@ -266,41 +299,57 @@ body, table, input, select, textarea {
 
 } /* grid only */
 
+#dashboardProfilePic {
+  height: 80px;
+  width: 80px;
+  padding: 15px;
+}
 
-.dashboardProfileLogo {
+/**************************************** My Achievements ****************************************/
+.myAchievementsBackground {
   background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.achievementResumeButtons {
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.PersonalProjectTitleButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 500px;
 }
 
-#dashboardProfilePic {
-  margin-top: 125px;
-  border-radius: 60px;
+.addNewPersonalProject {
+  margin-left: 30px;
+  margin-top: 7px;
 }
 
+.achievementTableAccessButtons {
+  display: flex;
+  flex-direction: row;
 
+}
 
-
-
-
-
-
-
-
-/**************************************** My Achievements ****************************************/
 .fixed_header{
     width: 80%;
-    table-layout:auto;
-    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 20px;
+    border-radius: 40px;
+    margin-left: 150px;
 }
 
 .fixed_header tbody{
   display:block;
-  width: 80%;
+  width: auto;
   overflow: auto;
-  height: 100px;
+  height: 250px;
 }
 
 .fixed_header thead tr {
@@ -314,6 +363,316 @@ body, table, input, select, textarea {
 
 .fixed_header th, .fixed_header td {
   padding: 5px;
-  text-align: left;
+  text-align: center;
   width: 200px;
+}
+
+.personalProjectDescription {
+  width: 300px;
+}
+
+.personalProjectOptions {
+  width: 20px;
+  margin-left: 50px;
+}
+
+.filler {
+    background-color: lightgray;
+    height:50px;
+}
+
+/**************************************** Add New Personal Projects ****************************************/
+.addNewAchievementsBackground {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.addNewProjectBox {
+  width: 80%;
+  height: 500px;
+  background-color: #F5F2D0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 150px;
+  border-radius: 30px;
+}
+
+.addNewProjectBoxTitle {
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.horizontalForm {
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+#projectDescription {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 30px;
+}
+
+#dateInputs {
+  margin-top: 25px;
+  padding-bottom: 25px;
+}
+
+
+/**************************************** Add New Resume ****************************************/
+.addNewResumeBox {
+  width: 80%;
+  height: auto;
+  background-color: #F5F2D0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 150px;
+  border-radius: 30px;
+  padding-top: 40px;
+}
+
+.addNewResumeBoxTitle {
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+
+.achievementListAndResumeDetails {
+  width: 80%;
+}
+
+/**************************** Profile Page Styling ************************/
+.profile-picture {
+  height: 17rem;
+  width: 17rem;
+  margin: 20px;
+}
+
+.card-profile-image {
+  text-align: center;
+}
+
+.main-content {
+  text-align: center;
+}
+
+.card-profile-stats {
+  text-align: center;
+}
+
+.profile-intro {
+  text-align: left;
+  margin: 30px;
+}
+
+.profile-container {
+  width: 200rem;
+  text-align: center;
+  padding-bottom: 2.5rem;
+}
+
+.myProfileBackground {
+  background-color: lightgray;
+}
+
+.item-count {
+  padding: 10px;
+}
+
+/**************************** Edit Profile ************************/
+.editProfileBackground {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 50px;
+    height: 100%;
+}
+
+.profile-form {
+  padding: 30px;
+}
+
+.edit-profile {
+  color: white;
+}
+
+.heading-small {
+  text-align: center;
+  font-size: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: .375rem;
+  background-color: #fff;
+  background-clip: border-box;
+}
+
+.card>hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex: 1 1 auto;
+  background-color: #fff;
+}
+
+.card-header {
+  margin-bottom: 0;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  background-color: #fff;
+}
+
+.card-header:first-child {
+  border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
+}
+
+.form-control {
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+  height: calc(2.75rem + 2px);
+  padding: .625rem .75rem;
+  transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
+  color: #8898aa;
+  border: 1px solid #cad1d7;
+  border-radius: .375rem;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .form-control {
+    transition: none;
+  }
+}
+
+.form-control::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+
+.form-control:focus {
+  color: #8898aa;
+  border-color: rgba(50, 151, 211, .25);
+  outline: 0;
+  background-color: #fff;
+  box-shadow: none, none;
+}
+
+.form-control:-ms-input-placeholder {
+  opacity: 1;
+  color: #adb5bd;
+}
+
+.form-control::-ms-input-placeholder {
+  opacity: 1;
+  color: #adb5bd;
+}
+
+.form-control::placeholder {
+  opacity: 1;
+  color: #adb5bd;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  opacity: 1;
+  background-color: #e9ecef;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  .form-inline label {
+    display: flex;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-inline .form-group {
+    display: flex;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  .form-inline .input-group {
+    width: auto;
+  }
+}
+
+/****************** About Us ****************/
+.top-container {
+  text-align: center;
+}
+.middle-container {
+  position: relative;
+  margin: 50px 0;
+}
+
+.intro-item {
+  width: 50%;
+  margin: auto auto auto auto;
+}
+
+#what-we-do {
+  width: 40%;
+  margin-left: 15rem;
+  text-align: left;
+}
+
+#who-we-are {
+  width: 40%;
+  margin-right: 15rem;
+  text-align: right;
+}
+
+.about-us-hr {
+  border: dotted #e0e0e0 6px;
+  border-bottom: none;
+  width: 4%;
+  margin: 50px auto;
+}
+
+.contact-details {
+  text-align: center;
+  margin: auto 100px;
 }
